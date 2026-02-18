@@ -673,7 +673,7 @@
   }
 
   function validationBadge(isComplete) {
-    return isComplete ? `<span class="badge success">Complet</span>` : `<span class="badge warn">Manquant</span>`;
+    return isComplete ? `<span class="badge success">Complet</span>` : `<span class="badge danger">Manquant</span>`;
   }
 
   function initIncomeStatement() {
@@ -686,7 +686,7 @@
         const key = cell.dataset.validation;
         const series = analysis.inputs.income[key];
         const hasMissing = YEAR_KEYS.some((y) => !toNumber(series[y]));
-        cell.innerHTML = hasMissing ? `<span class="badge warn">Manquant</span>` : `<span class="badge success">Complet</span>`;
+        cell.innerHTML = hasMissing ? `<span class="badge danger">Manquant</span>` : `<span class="badge success">Complet</span>`;
       });
     }
 
