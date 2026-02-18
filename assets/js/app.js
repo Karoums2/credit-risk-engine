@@ -154,6 +154,20 @@
     return Number.isFinite(n) ? n : 0;
   }
 
+  function requiredValidationYears() {
+    const createdAt = analysis.company?.createdAt;
+    if (!createdAt) return YEAR_KEYS;
+    const createdDate = new Date(createdAt);
+    if (Number.isNaN(createdDate.getTime())) return YEAR_KEYS;
+
+    const now = new Date();
+    const ageInYears = (now - createdDate) / (365.25 * 24 * 60 * 60 * 1000);
+
+    if (ageInYears < 1) return ["N"];
+    if (ageInYears < 2) return ["N", "N-1"];
+    return YEAR_KEYS;
+  }
+
   function safeDiv(a, b) {
     return b === 0 ? 0 : a / b;
   }
@@ -620,8 +634,11 @@
     const liabilityKeys = ["tradePayables", "shortTermDebt", "longTermDebt", "variableDebt", "fixedDebt", "equity"];
 
     function isRowComplete(key) {
+      const requiredYears = requiredValidationYears();
       const rowInputs = balanceInputs.filter((input) => input.dataset.key === key);
-      return rowInputs.every((input) => {
+      return rowInputs
+        .filter((input) => requiredYears.includes(input.dataset.year))
+        .every((input) => {
         const raw = String(input.value ?? "").trim();
         return raw !== "" && raw !== "0";
       });
@@ -682,10 +699,11 @@
     const incomeInputs = Array.from(document.querySelectorAll('[data-table="income"] input[data-key]'));
 
     function updateIncomeValidation() {
+      const requiredYears = requiredValidationYears();
       statusCells.forEach((cell) => {
         const key = cell.dataset.validation;
         const series = analysis.inputs.income[key];
-        const hasMissing = YEAR_KEYS.some((y) => !toNumber(series[y]));
+        const hasMissing = requiredYears.some((y) => !toNumber(series[y]));
         cell.innerHTML = hasMissing ? `<span class="badge danger">Manquant</span>` : `<span class="badge success">Complet</span>`;
       });
     }
@@ -720,10 +738,11 @@
     const validationCells = Array.from(document.querySelectorAll('[data-table="cashflow"] [data-validation]'));
 
     function isCashflowRowComplete(key) {
+      const requiredYears = requiredValidationYears();
       if (key === "undrawnMaturity") {
-        return YEAR_KEYS.every((year) => String(analysis.inputs.cashflow.undrawnMaturity[year] || "").trim() !== "");
+        return requiredYears.every((year) => String(analysis.inputs.cashflow.undrawnMaturity[year] || "").trim() !== "");
       }
-      return YEAR_KEYS.every((year) => toNumber(analysis.inputs.cashflow[key][year]) !== 0);
+      return requiredYears.every((year) => toNumber(analysis.inputs.cashflow[key][year]) !== 0);
     }
 
     function updateCashflowValidation() {
