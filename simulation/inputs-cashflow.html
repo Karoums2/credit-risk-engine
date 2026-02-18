@@ -23,14 +23,45 @@
                 <th>FY N</th>
                 <th>FY N-1</th>
                 <th>FY N-2</th>
+                <th>Validation</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>Capex</td><td><input data-key="capex" data-year="N" type="number" /></td><td><input data-key="capex" data-year="N-1" type="number" /></td><td><input data-key="capex" data-year="N-2" type="number" /></td></tr>
-              <tr><td>Variation BFR</td><td><input data-key="deltaWcr" data-year="N" type="number" /></td><td><input data-key="deltaWcr" data-year="N-1" type="number" /></td><td><input data-key="deltaWcr" data-year="N-2" type="number" /></td></tr>
-              <tr><td>Dividendes (optionnel)</td><td><input data-key="dividends" data-year="N" type="number" /></td><td><input data-key="dividends" data-year="N-1" type="number" /></td><td><input data-key="dividends" data-year="N-2" type="number" /></td></tr>
-              <tr><td>Lignes confirmées non tirées (montant)</td><td><input data-key="undrawnCommitted" data-year="N" type="number" /></td><td><input data-key="undrawnCommitted" data-year="N-1" type="number" /></td><td><input data-key="undrawnCommitted" data-year="N-2" type="number" /></td></tr>
-              <tr><td>Lignes confirmées non tirées (maturité)</td><td><input data-key="undrawnMaturity" data-year="N" data-type="text" type="text" /></td><td><input data-key="undrawnMaturity" data-year="N-1" data-type="text" type="text" /></td><td><input data-key="undrawnMaturity" data-year="N-2" data-type="text" type="text" /></td></tr>
+              <tr>
+                <td>Capex</td>
+                <td><input data-key="capex" data-year="N" type="number" /></td>
+                <td><input data-key="capex" data-year="N-1" type="number" /></td>
+                <td><input data-key="capex" data-year="N-2" type="number" /></td>
+                <td data-validation="capex"><span class="badge danger">Manquant</span></td>
+              </tr>
+              <tr>
+                <td>Variation BFR</td>
+                <td><input data-key="deltaWcr" data-year="N" type="number" /></td>
+                <td><input data-key="deltaWcr" data-year="N-1" type="number" /></td>
+                <td><input data-key="deltaWcr" data-year="N-2" type="number" /></td>
+                <td data-validation="deltaWcr"><span class="badge danger">Manquant</span></td>
+              </tr>
+              <tr>
+                <td>Dividendes (optionnel)</td>
+                <td><input data-key="dividends" data-year="N" type="number" /></td>
+                <td><input data-key="dividends" data-year="N-1" type="number" /></td>
+                <td><input data-key="dividends" data-year="N-2" type="number" /></td>
+                <td data-validation="dividends"><span class="badge danger">Manquant</span></td>
+              </tr>
+              <tr>
+                <td>Lignes confirmées non tirées (montant)</td>
+                <td><input data-key="undrawnCommitted" data-year="N" type="number" /></td>
+                <td><input data-key="undrawnCommitted" data-year="N-1" type="number" /></td>
+                <td><input data-key="undrawnCommitted" data-year="N-2" type="number" /></td>
+                <td data-validation="undrawnCommitted"><span class="badge danger">Manquant</span></td>
+              </tr>
+              <tr>
+                <td>Lignes confirmées non tirées (maturité)</td>
+                <td><input data-key="undrawnMaturity" data-year="N" data-type="text" type="text" /></td>
+                <td><input data-key="undrawnMaturity" data-year="N-1" data-type="text" type="text" /></td>
+                <td><input data-key="undrawnMaturity" data-year="N-2" data-type="text" type="text" /></td>
+                <td data-validation="undrawnMaturity"><span class="badge danger">Manquant</span></td>
+              </tr>
             </tbody>
           </table>
           <div class="actions actions-center">

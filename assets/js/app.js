@@ -717,6 +717,22 @@
     initYearTable("cashflow", analysis.inputs.cashflow);
     const numericInputs = Array.from(document.querySelectorAll('[data-table="cashflow"] input[data-key]:not([data-type="text"])'));
     const textInputs = Array.from(document.querySelectorAll('[data-table="cashflow"] [data-type="text"]'));
+    const validationCells = Array.from(document.querySelectorAll('[data-table="cashflow"] [data-validation]'));
+
+    function isCashflowRowComplete(key) {
+      if (key === "undrawnMaturity") {
+        return YEAR_KEYS.every((year) => String(analysis.inputs.cashflow.undrawnMaturity[year] || "").trim() !== "");
+      }
+      return YEAR_KEYS.every((year) => toNumber(analysis.inputs.cashflow[key][year]) !== 0);
+    }
+
+    function updateCashflowValidation() {
+      validationCells.forEach((cell) => {
+        const key = cell.dataset.validation;
+        const complete = isCashflowRowComplete(key);
+        cell.innerHTML = complete ? `<span class="badge success">Complet</span>` : `<span class="badge danger">Manquant</span>`;
+      });
+    }
 
     textInputs.forEach((input) => {
       const key = input.dataset.key;
@@ -724,8 +740,13 @@
       input.value = analysis.inputs.cashflow[key][year];
       input.addEventListener("input", () => {
         analysis.inputs.cashflow[key][year] = input.value;
+        updateCashflowValidation();
         saveAll();
       });
+    });
+
+    numericInputs.forEach((input) => {
+      input.addEventListener("input", updateCashflowValidation);
     });
 
     document.getElementById("clearCashflowBtn")?.addEventListener("click", () => {
@@ -744,8 +765,11 @@
       textInputs.forEach((input) => {
         input.value = "";
       });
+      updateCashflowValidation();
       saveAll();
     });
+
+    updateCashflowValidation();
   }
 
   function initEconomicBalance() {
