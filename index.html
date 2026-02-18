@@ -11,66 +11,55 @@
       <div class="container">
         <header class="page-header">
           <h1>Credit Risk Engine</h1>
-          <p class="muted">Plateforme d'analyse crédit corporate : scoring, stress tests, Monte Carlo et reporting institutionnel.</p>
+          <p class="muted">Plateforme d'analyse du risque de crédit: scoring, stress tests, Monte Carlo et reporting institutionnel.</p>
         </header>
 
         <section class="grid grid-2 section">
-          <article class="card segment-card">
-            <span class="segment-tag">Section 1</span>
+          <article class="card">
             <h2>Histoire</h2>
-            <p class="muted">
-              Le modèle est conçu pour relier rigueur financière et prise de décision crédit. Il standardise la lecture du
-              risque et transforme des états financiers en diagnostic exploitable.
+            <p>
+              Étudiant en Master 2 Programme Grande École à l'ICN Business School, je travaille depuis plus d'un an sur la
+              construction d'une matrice d'analyse et d'un Credit Risk Engine. L'idée est partie d'un constat simple: on
+              dispose souvent de beaucoup de données comptables, mais elles ne donnent pas toujours une vision claire et
+              structurée du risque d'une entreprise.
             </p>
-            <label class="field section">
-              Narratif
-              <textarea id="storyField" placeholder="Contexte, positionnement, enjeux clés de l'entreprise."></textarea>
-            </label>
+            <p>
+              J'ai donc cherché à créer un outil qui permette de transformer ces données en quelque chose de plus lisible:
+              un score, une notation, puis une probabilité de défaut. Je ne cherche pas à reproduire la complexité d'un
+              modèle bancaire réglementaire, mais plutôt à proposer une approche rigoureuse, accessible et concrète.
+            </p>
+            <p>
+              Ce projet relie analyse financière, logique de marché et modélisation du risque, tout en restant ancré dans
+              des problématiques concrètes d'entreprise.
+            </p>
           </article>
 
-          <article class="card segment-card">
-            <span class="segment-tag">Section 2</span>
-            <h2>Simulation</h2>
-            <p class="muted">
-              Workflow en étapes: préambule, inputs 3 ans, bilan économique, scoring et simulation complète.
-            </p>
+          <article class="card">
+            <h2>Objectifs</h2>
             <div class="grid section">
               <label class="field">Objectif 1 <input type="text" data-objective="0" /></label>
               <label class="field">Objectif 2 <input type="text" data-objective="1" /></label>
               <label class="field">Objectif 3 <input type="text" data-objective="2" /></label>
-            </div>
-            <div class="actions">
-              <a class="btn" href="./simulation/preamble.html">Ouvrir la simulation</a>
+              <label class="field">Objectif 4 <input type="text" data-objective="3" /></label>
             </div>
           </article>
 
-          <article class="card segment-card">
-            <span class="segment-tag">Section 3</span>
-            <h2>Génération PDF</h2>
-            <p class="muted">Sortie client-ready avec watermark confidentiel, date d'édition et format standardisé.</p>
-            <ul class="list-plain section">
-              <li>Client summary (4 pages)</li>
-              <li>Full report (10-15 pages)</li>
-              <li>Export via impression navigateur</li>
+          <article class="card">
+            <h2>Apports de la solution</h2>
+            <ul class="list-plain">
+              <li>Analyse financière fondamentale</li>
+              <li>Scoring structuré et interprétation des résultats en temps réel</li>
+              <li>Produire un reporting clair, visuel et exploitable</li>
             </ul>
-            <div class="actions">
-              <a class="btn secondary" href="./export/pdf.html">Aller à l'export PDF</a>
-            </div>
           </article>
 
-          <article class="card segment-card">
-            <span class="segment-tag">Section 4</span>
-            <h2>Paramètres &amp; Méthodologie</h2>
+          <article class="card">
+            <h2>Démarrer une simulation</h2>
             <p class="muted">
-              Coeur de calcul paramétrable: pondérations, seuils rating, PD/LGD/EAD, hypothèses stress et matrice de score.
+              Lancez le wizard complet pour saisir les inputs financiers, générer le scoring et obtenir le rapport final.
             </p>
-            <ul class="list-plain section">
-              <li>Structure de scoring par paires</li>
-              <li>Matrice de calcul en coeur modèle</li>
-              <li>Paramètres sauvegardés en localStorage</li>
-            </ul>
             <div class="actions">
-              <a class="btn secondary" href="./settings/methodology.html">Configurer la méthodologie</a>
+              <a class="btn center" href="./simulation/preamble.html">Commencer la simulation</a>
             </div>
           </article>
         </section>

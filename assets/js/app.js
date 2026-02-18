@@ -34,7 +34,7 @@
       businessModel: "",
       comments: "",
       story: "",
-      objectives: ["", "", ""]
+      objectives: ["", "", "", ""]
     },
     inputs: {
       balance: {

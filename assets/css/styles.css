@@ -28,8 +28,8 @@ body {
 }
 
 body {
-  padding-top: 72px;
-  padding-bottom: 68px;
+  padding-top: 64px;
+  padding-bottom: 40px;
 }
 
 a {
@@ -49,7 +49,7 @@ a {
   top: 0;
   left: 0;
   right: 0;
-  height: 72px;
+  height: 62px;
   display: flex;
   align-items: center;
   z-index: 1000;
@@ -74,13 +74,14 @@ a {
 
 .brand img {
   width: auto;
-  height: 32px;
+  height: 24px;
 }
 
 .brand-title {
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .main-nav {
@@ -92,9 +93,10 @@ a {
 
 .main-nav a {
   color: #e8edf4;
-  font-size: 14px;
-  padding: 8px 10px;
-  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 7px 12px;
+  border-radius: 10px;
 }
 
 .main-nav a:hover,
@@ -108,7 +110,7 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 52px;
+  height: 30px;
   display: flex;
   align-items: center;
   background: var(--primary);
@@ -117,7 +119,7 @@ a {
 
 .site-footer .container {
   color: #e8edf4;
-  font-size: 13px;
+  font-size: 10px;
 }
 
 .page {
@@ -281,6 +283,9 @@ th {
   background: var(--primary);
   color: #fff;
   font-weight: 500;
+  font-size: 13px;
+  border-radius: 10px;
+  padding: 8px 16px;
   cursor: pointer;
 }
 
