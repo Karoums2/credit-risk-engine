@@ -290,6 +290,11 @@ th {
   justify-content: space-between;
 }
 
+.actions.actions-center {
+  justify-content: center;
+  align-items: center;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;

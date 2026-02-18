@@ -558,6 +558,31 @@
         saveAll();
       });
     });
+
+    document.getElementById("clearPreambleBtn")?.addEventListener("click", () => {
+      analysis.company.name = "";
+      analysis.company.createdAt = "";
+      analysis.company.sector = methodology.sectors[0] || "";
+      analysis.company.country = "";
+      analysis.company.headcount = "";
+      analysis.company.businessModel = "";
+      analysis.company.comments = "";
+
+      const uiMap = {
+        companyName: analysis.company.name,
+        creationDate: analysis.company.createdAt,
+        sector: analysis.company.sector,
+        country: analysis.company.country,
+        headcount: analysis.company.headcount,
+        businessModel: analysis.company.businessModel,
+        comments: analysis.company.comments
+      };
+      Object.entries(uiMap).forEach(([id, value]) => {
+        const el = document.getElementById(id);
+        if (el) el.value = value;
+      });
+      saveAll();
+    });
   }
 
   function initYearTable(prefix, target) {
@@ -653,20 +678,47 @@
 
   function initIncomeStatement() {
     initYearTable("income", analysis.inputs.income);
-    const statusCells = document.querySelectorAll("[data-validation]");
-    statusCells.forEach((cell) => {
-      const key = cell.dataset.validation;
-      const series = analysis.inputs.income[key];
-      const hasMissing = YEAR_KEYS.some((y) => !toNumber(series[y]));
-      cell.innerHTML = hasMissing ? `<span class="badge warn">Manquant</span>` : `<span class="badge success">Complet</span>`;
+    const statusCells = Array.from(document.querySelectorAll("[data-validation]"));
+    const incomeInputs = Array.from(document.querySelectorAll('[data-table="income"] input[data-key]'));
+
+    function updateIncomeValidation() {
+      statusCells.forEach((cell) => {
+        const key = cell.dataset.validation;
+        const series = analysis.inputs.income[key];
+        const hasMissing = YEAR_KEYS.some((y) => !toNumber(series[y]));
+        cell.innerHTML = hasMissing ? `<span class="badge warn">Manquant</span>` : `<span class="badge success">Complet</span>`;
+      });
+    }
+
+    incomeInputs.forEach((input) => {
+      input.addEventListener("input", updateIncomeValidation);
     });
+
     const saveDate = document.getElementById("lastSaved");
     if (saveDate) saveDate.textContent = new Date(analysis.timestamp).toLocaleString("fr-FR");
+    updateIncomeValidation();
+
+    document.getElementById("clearIncomeBtn")?.addEventListener("click", () => {
+      const keys = ["revenue", "ebitda", "ebit", "financialCharges", "netIncome", "depreciation"];
+      keys.forEach((key) => {
+        YEAR_KEYS.forEach((year) => {
+          analysis.inputs.income[key][year] = 0;
+        });
+      });
+      incomeInputs.forEach((input) => {
+        input.value = "";
+      });
+      updateIncomeValidation();
+      saveAll();
+    });
   }
 
   function initCashflow() {
     initYearTable("cashflow", analysis.inputs.cashflow);
-    document.querySelectorAll('[data-table="cashflow"] [data-type="text"]').forEach((input) => {
+    const numericInputs = Array.from(document.querySelectorAll('[data-table="cashflow"] input[data-key]:not([data-type="text"])'));
+    const textInputs = Array.from(document.querySelectorAll('[data-table="cashflow"] [data-type="text"]'));
+
+    textInputs.forEach((input) => {
       const key = input.dataset.key;
       const year = input.dataset.year;
       input.value = analysis.inputs.cashflow[key][year];
@@ -674,6 +726,25 @@
         analysis.inputs.cashflow[key][year] = input.value;
         saveAll();
       });
+    });
+
+    document.getElementById("clearCashflowBtn")?.addEventListener("click", () => {
+      const numericKeys = ["capex", "deltaWcr", "dividends", "undrawnCommitted"];
+      numericKeys.forEach((key) => {
+        YEAR_KEYS.forEach((year) => {
+          analysis.inputs.cashflow[key][year] = 0;
+        });
+      });
+      YEAR_KEYS.forEach((year) => {
+        analysis.inputs.cashflow.undrawnMaturity[year] = "";
+      });
+      numericInputs.forEach((input) => {
+        input.value = "";
+      });
+      textInputs.forEach((input) => {
+        input.value = "";
+      });
+      saveAll();
     });
   }
 
