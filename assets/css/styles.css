@@ -295,6 +295,25 @@ th {
   align-items: center;
 }
 
+.actions.actions-table {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  width: 100%;
+}
+
+.actions.actions-table > *:first-child {
+  justify-self: start;
+}
+
+.actions.actions-table > *:nth-child(2) {
+  justify-self: center;
+}
+
+.actions.actions-table > *:last-child {
+  justify-self: end;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
