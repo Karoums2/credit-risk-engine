@@ -4,6 +4,12 @@
 
   const YEAR_KEYS = ["N", "N-1", "N-2"];
   const PAIR_SCORE_MATRIX = buildPairMatrix();
+  const DEFAULT_OBJECTIVES = [
+    "Structurer une analyse crédit de manière rigoureuse",
+    "Rendre des intuitions financières mesurables et comparables",
+    "Relier performance opérationnelle, structure financière et probabilité de défaut",
+    "Produire un reporting exploitable en banque d'affaires ou en private equity"
+  ];
 
   const defaultMethodology = () => ({
     weights: { structure: 0.3, liquidite: 0.3, business: 0.25, gouvernance: 0.15 },
@@ -34,7 +40,7 @@
       businessModel: "",
       comments: "",
       story: "",
-      objectives: ["", "", "", ""]
+      objectives: [...DEFAULT_OBJECTIVES]
     },
     inputs: {
       balance: {
@@ -513,12 +519,19 @@
   }
 
   function initHome() {
+    // Réinjecte les objectifs standards si les champs sont vides.
+    analysis.company.objectives = Array.from({ length: 4 }, (_, idx) => {
+      const current = analysis.company.objectives?.[idx];
+      return current && String(current).trim() ? current : DEFAULT_OBJECTIVES[idx];
+    });
+
     bindModelInput("[data-objective]", (el) => analysis.company.objectives[toNumber(el.dataset.objective)], (el, v) => {
       analysis.company.objectives[toNumber(el.dataset.objective)] = v;
     });
     bindModelInput("#storyField", () => analysis.company.story, (_, v) => {
       analysis.company.story = v;
     });
+    saveAll();
   }
 
   function initPreamble() {

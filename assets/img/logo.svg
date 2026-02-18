@@ -1,11 +1,41 @@
-<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <defs>
-    <linearGradient id="goldGrad" x1="10%" y1="50%" x2="90%" y2="50%">
-      <stop offset="0%" stop-color="#e8d4a0" />
-      <stop offset="100%" stop-color="#d29619" />
+    <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b8c0c8" />
+      <stop offset="100%" stop-color="#7d8994" />
     </linearGradient>
   </defs>
-  <circle cx="80" cy="80" r="58" fill="none" stroke="url(#goldGrad)" stroke-width="18" stroke-linecap="round" stroke-dasharray="300 78" transform="rotate(0 80 80)" />
-  <circle cx="80" cy="80" r="40" fill="none" stroke="url(#goldGrad)" stroke-width="14" stroke-linecap="round" stroke-dasharray="210 56" transform="rotate(0 80 80)" />
-  <circle cx="80" cy="80" r="24" fill="none" stroke="url(#goldGrad)" stroke-width="10" stroke-linecap="round" stroke-dasharray="130 34" transform="rotate(0 80 80)" />
+  <circle
+    cx="64"
+    cy="64"
+    r="45"
+    fill="none"
+    stroke="url(#silverGrad)"
+    stroke-width="12"
+    stroke-linecap="round"
+    stroke-dasharray="220 76"
+    transform="rotate(0 64 64)"
+  />
+  <circle
+    cx="64"
+    cy="64"
+    r="31"
+    fill="none"
+    stroke="url(#silverGrad)"
+    stroke-width="10"
+    stroke-linecap="round"
+    stroke-dasharray="154 58"
+    transform="rotate(0 64 64)"
+  />
+  <circle
+    cx="64"
+    cy="64"
+    r="18"
+    fill="none"
+    stroke="url(#silverGrad)"
+    stroke-width="8"
+    stroke-linecap="round"
+    stroke-dasharray="90 42"
+    transform="rotate(0 64 64)"
+  />
 </svg>
