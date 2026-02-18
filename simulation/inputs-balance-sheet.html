@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulation - Inputs Bilan comptable</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body data-root=".." data-nav="simulation" data-page="simulation-balance" data-step="inputs">
+    <main class="page">
+      <div class="container">
+        <header class="page-header">
+          <h1>Inputs - Bilan comptable</h1>
+          <p class="muted">Saisie sur 3 ans (FY N / FY N-1 / FY N-2).</p>
+        </header>
+        <div id="stepper"></div>
+
+        <section class="card section table-wrap" data-table="balance">
+          <table>
+            <thead>
+              <tr>
+                <th>Poste</th>
+                <th>FY N</th>
+                <th>FY N-1</th>
+                <th>FY N-2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Actifs</strong></td><td></td><td></td><td></td></tr>
+              <tr><td>Immos corporelles</td><td><input data-key="tangibleFixedAssets" data-year="N" type="number" /></td><td><input data-key="tangibleFixedAssets" data-year="N-1" type="number" /></td><td><input data-key="tangibleFixedAssets" data-year="N-2" type="number" /></td></tr>
+              <tr><td>Immos incorporelles</td><td><input data-key="intangibleFixedAssets" data-year="N" type="number" /></td><td><input data-key="intangibleFixedAssets" data-year="N-1" type="number" /></td><td><input data-key="intangibleFixedAssets" data-year="N-2" type="number" /></td></tr>
+              <tr><td>Immos financières</td><td><input data-key="financialFixedAssets" data-year="N" type="number" /></td><td><input data-key="financialFixedAssets" data-year="N-1" type="number" /></td><td><input data-key="financialFixedAssets" data-year="N-2" type="number" /></td></tr>
+              <tr><td>Stocks</td><td><input data-key="inventory" data-year="N" type="number" /></td><td><input data-key="inventory" data-year="N-1" type="number" /></td><td><input data-key="inventory" data-year="N-2" type="number" /></td></tr>
+              <tr><td>Créances clients</td><td><input data-key="receivables" data-year="N" type="number" /></td><td><input data-key="receivables" data-year="N-1" type="number" /></td><td><input data-key="receivables" data-year="N-2" type="number" /></td></tr>
+              <tr><td>Trésorerie &amp; équivalents</td><td><input data-key="cash" data-year="N" type="number" /></td><td><input data-key="cash" data-year="N-1" type="number" /></td><td><input data-key="cash" data-year="N-2" type="number" /></td></tr>
+              <tr><td><strong>Passifs</strong></td><td></td><td></td><td></td></tr>
+              <tr><td>Dettes fournisseurs (exploitation)</td><td><input data-key="tradePayables" data-year="N" type="number" /></td><td><input data-key="tradePayables" data-year="N-1" type="number" /></td><td><input data-key="tradePayables" data-year="N-2" type="number" /></td></tr>
+              <tr><td>Dettes financières CT</td><td><input data-key="shortTermDebt" data-year="N" type="number" /></td><td><input data-key="shortTermDebt" data-year="N-1" type="number" /></td><td><input data-key="shortTermDebt" data-year="N-2" type="number" /></td></tr>
+              <tr><td>Dettes financières LT</td><td><input data-key="longTermDebt" data-year="N" type="number" /></td><td><input data-key="longTermDebt" data-year="N-1" type="number" /></td><td><input data-key="longTermDebt" data-year="N-2" type="number" /></td></tr>
+              <tr><td>Dette variable (optionnel)</td><td><input data-key="variableDebt" data-year="N" type="number" /></td><td><input data-key="variableDebt" data-year="N-1" type="number" /></td><td><input data-key="variableDebt" data-year="N-2" type="number" /></td></tr>
+              <tr><td>Dette fixe (optionnel)</td><td><input data-key="fixedDebt" data-year="N" type="number" /></td><td><input data-key="fixedDebt" data-year="N-1" type="number" /></td><td><input data-key="fixedDebt" data-year="N-2" type="number" /></td></tr>
+              <tr><td>Capitaux propres</td><td><input data-key="equity" data-year="N" type="number" /></td><td><input data-key="equity" data-year="N-1" type="number" /></td><td><input data-key="equity" data-year="N-2" type="number" /></td></tr>
+            </tbody>
+          </table>
+          <div class="actions">
+            <a class="btn" href="./inputs-income-statement.html">Continuer vers compte de résultat</a>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="../assets/js/app.js"></script>
+  </body>
+</html>

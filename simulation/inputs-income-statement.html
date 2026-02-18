@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulation - Inputs Compte de résultat</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body data-root=".." data-nav="simulation" data-page="simulation-income" data-step="inputs">
+    <main class="page">
+      <div class="container">
+        <header class="page-header">
+          <h1>Inputs - Compte de résultat</h1>
+          <p class="muted">Format institutionnel avec validation de complétude.</p>
+        </header>
+        <div id="stepper"></div>
+
+        <section class="income-layout section">
+          <article class="card table-wrap" data-table="income">
+            <table>
+              <thead>
+                <tr>
+                  <th>Ligne</th>
+                  <th>FY N</th>
+                  <th>FY N-1</th>
+                  <th>FY N-2</th>
+                  <th>Validation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Chiffre d'affaires</td>
+                  <td><input data-key="revenue" data-year="N" type="number" /></td>
+                  <td><input data-key="revenue" data-year="N-1" type="number" /></td>
+                  <td><input data-key="revenue" data-year="N-2" type="number" /></td>
+                  <td data-validation="revenue"><span class="badge warn">Manquant</span></td>
+                </tr>
+                <tr>
+                  <td>EBITDA</td>
+                  <td><input data-key="ebitda" data-year="N" type="number" /></td>
+                  <td><input data-key="ebitda" data-year="N-1" type="number" /></td>
+                  <td><input data-key="ebitda" data-year="N-2" type="number" /></td>
+                  <td data-validation="ebitda"><span class="badge warn">Manquant</span></td>
+                </tr>
+                <tr>
+                  <td>EBIT (optionnel)</td>
+                  <td><input data-key="ebit" data-year="N" type="number" /></td>
+                  <td><input data-key="ebit" data-year="N-1" type="number" /></td>
+                  <td><input data-key="ebit" data-year="N-2" type="number" /></td>
+                  <td><span class="badge">Optionnel</span></td>
+                </tr>
+                <tr>
+                  <td>Charges financières</td>
+                  <td><input data-key="financialCharges" data-year="N" type="number" /></td>
+                  <td><input data-key="financialCharges" data-year="N-1" type="number" /></td>
+                  <td><input data-key="financialCharges" data-year="N-2" type="number" /></td>
+                  <td data-validation="financialCharges"><span class="badge warn">Manquant</span></td>
+                </tr>
+                <tr>
+                  <td>Résultat net</td>
+                  <td><input data-key="netIncome" data-year="N" type="number" /></td>
+                  <td><input data-key="netIncome" data-year="N-1" type="number" /></td>
+                  <td><input data-key="netIncome" data-year="N-2" type="number" /></td>
+                  <td data-validation="netIncome"><span class="badge warn">Manquant</span></td>
+                </tr>
+                <tr>
+                  <td>Amortissements (optionnel)</td>
+                  <td><input data-key="depreciation" data-year="N" type="number" /></td>
+                  <td><input data-key="depreciation" data-year="N-1" type="number" /></td>
+                  <td><input data-key="depreciation" data-year="N-2" type="number" /></td>
+                  <td><span class="badge">Optionnel</span></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="actions">
+              <a class="btn secondary" href="./inputs-balance-sheet.html">Retour au bilan</a>
+              <a class="btn" href="./inputs-cashflow.html">Continuer vers cash-flow</a>
+            </div>
+          </article>
+
+          <aside class="card panel-help">
+            <h3>Validation &amp; aide</h3>
+            <ul class="list-plain">
+              <li>Unité: k€</li>
+              <li>Champs requis: CA, EBITDA, Charges financières, Résultat net</li>
+              <li>Dernière sauvegarde: <span id="lastSaved">-</span></li>
+            </ul>
+            <div class="section">
+              <label class="field">Commentaires analyste <textarea placeholder="Observations de cohérence, retraitements, alertes."></textarea></label>
+            </div>
+            <div class="section">
+              <h3>Rappels</h3>
+              <ul class="list-plain">
+                <li>Vérifier la cohérence EBITDA / marge.</li>
+                <li>Contrôler la tendance des charges financières.</li>
+                <li>Identifier les éléments non récurrents.</li>
+              </ul>
+            </div>
+          </aside>
+        </section>
+      </div>
+    </main>
+    <script src="../assets/js/app.js"></script>
+  </body>
+</html>

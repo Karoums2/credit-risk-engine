@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulation - Préambule</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body data-root=".." data-nav="simulation" data-page="simulation-preamble" data-step="preambule">
+    <main class="page">
+      <div class="container">
+        <header class="page-header">
+          <h1>Simulation - Préambule</h1>
+          <p class="muted">Saisie des informations d'entreprise avant collecte des états financiers.</p>
+        </header>
+        <div id="stepper"></div>
+
+        <section class="card section">
+          <div class="field-row">
+            <label class="field">Nom entreprise <input id="companyName" type="text" /></label>
+            <label class="field">Date de création <input id="creationDate" type="date" /></label>
+            <label class="field">
+              Secteur
+              <select id="sector"></select>
+            </label>
+            <label class="field">Pays <input id="country" type="text" /></label>
+            <label class="field">Effectif <input id="headcount" type="number" min="0" /></label>
+            <label class="field">Modèle économique <input id="businessModel" type="text" /></label>
+          </div>
+          <label class="field section">Commentaires <textarea id="comments"></textarea></label>
+          <div class="actions">
+            <a class="btn" href="./inputs-balance-sheet.html">Continuer vers bilan comptable</a>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="../assets/js/app.js"></script>
+  </body>
+</html>

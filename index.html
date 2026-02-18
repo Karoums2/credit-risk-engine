@@ -3,6 +3,66 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Credit Risk Engine - Accueil</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body data-root="." data-nav="home" data-page="home">
+    <main class="page">
+      <div class="container">
+        <header class="page-header">
+          <h1>Credit Risk Engine</h1>
+          <p class="muted">
+            Outil d'analyse du risque de crédit institutionnel, conçu pour structurer la décision et standardiser le
+            reporting.
+          </p>
+        </header>
+
+        <section class="grid grid-2 section">
+          <article class="card">
+            <h2>Histoire</h2>
+            <label class="field">
+              Narratif
+              <textarea id="storyField" placeholder="Contexte, historique et enjeux de l'entreprise analysée."></textarea>
+            </label>
+          </article>
+
+          <article class="card">
+            <h2>Objectifs</h2>
+            <div class="grid">
+              <label class="field">Objectif 1 <input type="text" data-objective="0" /></label>
+              <label class="field">Objectif 2 <input type="text" data-objective="1" /></label>
+              <label class="field">Objectif 3 <input type="text" data-objective="2" /></label>
+            </div>
+          </article>
+
+          <article class="card">
+            <h2>Apports de la solution</h2>
+            <ul class="list-plain">
+              <li>Score + interprétation en temps réel</li>
+              <li>Scénarios stress + Monte Carlo</li>
+              <li>Reporting client-ready</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h2>Démarrer une simulation</h2>
+            <p class="muted">
+              Lancez le wizard pour collecter les données financières, calculer les scores et produire un livrable de
+              décision.
+            </p>
+            <a class="btn center" href="./simulation/preamble.html">Commencer la simulation</a>
+          </article>
+        </section>
+      </div>
+    </main>
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CHAABENA CONSULTING CAPITAL - Credit Risk Engine</title>
     <link rel="stylesheet" href="./analysis/styles.css" />
     <style>

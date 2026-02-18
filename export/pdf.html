@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Génération PDF</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body data-root=".." data-nav="pdf" data-page="export-pdf">
+    <div class="watermark">CONFIDENTIEL</div>
+    <main class="page">
+      <div class="container">
+        <header class="page-header">
+          <h1>Génération PDF</h1>
+          <p class="muted">Export statique via impression navigateur avec watermark, date et pagination.</p>
+        </header>
+
+        <section class="card section">
+          <h2>Choix du format</h2>
+          <label class="field">
+            Format
+            <select id="pdfFormat">
+              <option>Client summary (4 pages)</option>
+              <option>Full report (10-15 pages)</option>
+            </select>
+          </label>
+          <p class="muted section">Date d'édition: <strong id="reportDate">-</strong></p>
+          <div class="actions">
+            <button id="printBtn" type="button" class="btn">Générer PDF</button>
+            <a class="btn secondary no-print" href="../report/results.html">Voir résultats</a>
+          </div>
+        </section>
+
+        <section class="card section">
+          <h2>Aperçu de contenu PDF</h2>
+          <ul class="list-plain">
+            <li>Page de garde institutionnelle + logo argent</li>
+            <li>Executive summary (score, rating, PD, EL)</li>
+            <li>Analyse par paires + heatmap</li>
+            <li>Stress tests + Monte Carlo + annexes méthodologiques</li>
+          </ul>
+        </section>
+      </div>
+    </main>
+    <script src="../assets/js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulation - Exécution complète</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body data-root=".." data-nav="simulation" data-page="simulation-run" data-step="simulation">
+    <main class="page">
+      <div class="container">
+        <header class="page-header">
+          <h1>Simulation complète</h1>
+          <p class="muted">Stress tests, PD logistique, LGD, EAD, EL, Monte Carlo et module LBO.</p>
+        </header>
+        <div id="stepper"></div>
+
+        <section class="card section">
+          <h2>Stress tests</h2>
+          <table>
+            <thead>
+              <tr><th>Scénario</th><th>Score</th><th>Rating</th><th>PD (%)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Base</td><td id="baseScore">0</td><td id="baseRating">-</td><td id="basePd">0</td></tr>
+              <tr><td>Stress 1: EBITDA -20%</td><td id="s1Score">0</td><td id="s1Rating">-</td><td id="s1Pd">0</td></tr>
+              <tr><td>Stress 2: Taux +200 bps</td><td id="s2Score">0</td><td id="s2Rating">-</td><td id="s2Pd">0</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="grid grid-2 section">
+          <article class="card">
+            <h2>PD / LGD / EAD / EL</h2>
+            <ul class="list-plain">
+              <li>PD (%): <strong id="pdValue">0</strong></li>
+              <li>LGD (%): <strong id="lgdValue">0</strong></li>
+              <li>EAD (€): <strong id="eadValue">0 €</strong></li>
+              <li>EL (€): <strong id="elValue">0 €</strong></li>
+              <li>EL (% EAD): <strong id="elPctValue">0</strong></li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h2>Monte Carlo (10 000)</h2>
+            <ul class="list-plain">
+              <li>PD mean (%): <strong id="mcMean">0</strong></li>
+              <li>PD P95 (%): <strong id="mcP95">0</strong></li>
+            </ul>
+            <div id="monteCarloHist"></div>
+          </article>
+        </section>
+
+        <section class="card section">
+          <h2>Module LBO</h2>
+          <label class="field"><input id="lboEnabled" type="checkbox" /> Activer le module LBO</label>
+          <div class="grid grid-3 section">
+            <label class="field">Dette senior <input id="seniorDebt" type="number" min="0" /></label>
+            <label class="field">Dette mezzanine <input id="mezzDebt" type="number" min="0" /></label>
+            <label class="field">Dette unitranche <input id="unitrancheDebt" type="number" min="0" /></label>
+            <label class="field">Taux moyen (%) <input id="averageRate" type="number" step="0.01" /></label>
+            <label class="field">Amortissement <input id="amortization" type="number" step="0.01" /></label>
+            <label class="field">Exit multiple risk <input id="exitMultipleRisk" type="number" step="0.01" /></label>
+          </div>
+          <div class="grid grid-3 section">
+            <div class="kpi"><p class="muted">DSCR</p><p class="value" id="lboDscr">0</p></div>
+            <div class="kpi"><p class="muted">Cash sweep (%)</p><p class="value" id="lboSweep">0</p></div>
+            <div class="kpi"><p class="muted">PD final LBO (%)</p><p class="value" id="lboPdFinal">0</p></div>
+          </div>
+        </section>
+
+        <div class="actions section">
+          <a class="btn secondary" href="./scoring.html">Retour scoring</a>
+          <a class="btn" href="../report/results.html">Voir résultats</a>
+        </div>
+      </div>
+    </main>
+    <script src="../assets/js/app.js"></script>
+  </body>
+</html>

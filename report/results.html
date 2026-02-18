@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Résultats - Template clé</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body data-root=".." data-nav="simulation" data-page="report-results">
+    <main class="page">
+      <div class="container">
+        <header class="page-header">
+          <h1>Résultats - Template clé</h1>
+          <p class="muted">Synthèse exécutive, stress tests, métriques de risque et graphiques décisionnels.</p>
+        </header>
+
+        <section class="card section">
+          <h2>Executive summary</h2>
+          <div class="kpis">
+            <article class="kpi"><p class="muted">Score global</p><p class="value" id="summaryScore">0</p></article>
+            <article class="kpi"><p class="muted">Rating</p><p class="value" id="summaryRating">BBB</p></article>
+            <article class="kpi"><p class="muted">PD (%)</p><p class="value" id="summaryPd">0</p></article>
+            <article class="kpi"><p class="muted">EL (€)</p><p class="value" id="summaryEl">0 €</p></article>
+          </div>
+        </section>
+
+        <section class="grid grid-2 section">
+          <article class="card">
+            <h2>Scores par paires</h2>
+            <table>
+              <thead><tr><th>Paire</th><th>Score</th><th>Niveau</th></tr></thead>
+              <tbody id="pairsTableBody"></tbody>
+            </table>
+            <h3 class="section">Commentaires auto</h3>
+            <ul id="autoComments" class="list-plain"></ul>
+          </article>
+
+          <article class="card">
+            <h2>Heatmap</h2>
+            <div id="resultsHeatmap"></div>
+            <div class="legend">
+              <span><span class="dot low"></span>Faible</span>
+              <span><span class="dot mid"></span>Moyen</span>
+              <span><span class="dot high"></span>Élevé</span>
+            </div>
+          </article>
+        </section>
+
+        <section class="grid grid-2 section">
+          <article class="card">
+            <h2>Levier (historique + projection)</h2>
+            <svg id="leverageChart" class="line-chart" viewBox="0 0 400 220" preserveAspectRatio="none"></svg>
+          </article>
+          <article class="card">
+            <h2>Histogramme Monte Carlo</h2>
+            <div id="resultsHist"></div>
+          </article>
+        </section>
+
+        <section class="card section">
+          <h2>Stress tests et métriques risques</h2>
+          <p class="muted">Détails disponibles dans la page Simulation complète; agrégation conservée dans localStorage.</p>
+        </section>
+
+        <div class="actions section">
+          <button id="saveAnalysisBtn" class="btn" type="button">Enregistrer analyse</button>
+          <a class="btn secondary" href="../export/pdf.html">Générer PDF</a>
+        </div>
+      </div>
+    </main>
+    <script src="../assets/js/app.js"></script>
+  </body>
+</html>

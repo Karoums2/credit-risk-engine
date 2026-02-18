@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulation - Bilan économique</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body data-root=".." data-nav="simulation" data-page="simulation-economic" data-step="economic">
+    <main class="page">
+      <div class="container">
+        <header class="page-header">
+          <h1>Bilan économique</h1>
+          <p class="muted">Reconstitution automatique des capitaux investis et de la dette nette.</p>
+        </header>
+        <div id="stepper"></div>
+
+        <section class="card section">
+          <h2>Formules</h2>
+          <ul class="list-plain">
+            <li title="BFR = Stocks + Créances clients − Dettes fournisseurs">BFR = Stocks + Créances clients − Dettes fournisseurs</li>
+            <li title="Actif économique = Immobilisations + BFR">Actif économique = Immobilisations + BFR</li>
+            <li title="Dette nette = Dette financière brute − Trésorerie">Dette nette = Dette financière brute − Trésorerie</li>
+            <li title="Capitaux investis = Fonds propres + Dette nette">Capitaux investis = Fonds propres + Dette nette</li>
+          </ul>
+        </section>
+
+        <section class="grid grid-2 section">
+          <article class="card table-wrap">
+            <h2>Tableau synthétique</h2>
+            <table>
+              <tbody>
+                <tr><th>BFR</th><td id="wcrValue">0 €</td></tr>
+                <tr><th>Immobilisations</th><td id="immoValue">0 €</td></tr>
+                <tr><th>Actif économique</th><td id="ecoAssetsValue">0 €</td></tr>
+                <tr><th>Dette financière brute</th><td id="grossDebtValue">0 €</td></tr>
+                <tr><th>Dette nette</th><td id="netDebtValue">0 €</td></tr>
+                <tr><th>Capitaux investis</th><td id="investedValue">0 €</td></tr>
+              </tbody>
+            </table>
+          </article>
+
+          <article class="card">
+            <h2>Diagramme 4 boîtes</h2>
+            <div class="diagram-grid">
+              <div class="diagram-box" title="Immobilisations (corporelles + incorporelles + financières)">Immobilisations</div>
+              <div class="diagram-box" title="Stocks + Créances clients - Dettes fournisseurs">BFR</div>
+              <div class="diagram-box" title="Capitaux propres">Fonds propres</div>
+              <div class="diagram-box" title="Dette brute - Trésorerie">Dette nette</div>
+            </div>
+            <p class="muted section">Survoler les boîtes pour voir les formules.</p>
+          </article>
+        </section>
+
+        <div class="actions section">
+          <a class="btn secondary" href="./inputs-cashflow.html">Retour cash-flow</a>
+          <a class="btn" href="./scoring.html">Vers scoring</a>
+        </div>
+      </div>
+    </main>
+    <script src="../assets/js/app.js"></script>
+  </body>
+</html>

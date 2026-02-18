@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulation - Inputs Cash-flow</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body data-root=".." data-nav="simulation" data-page="simulation-cashflow" data-step="inputs">
+    <main class="page">
+      <div class="container">
+        <header class="page-header">
+          <h1>Inputs - Cash-flow</h1>
+          <p class="muted">Saisie des éléments de génération de trésorerie sur 3 ans.</p>
+        </header>
+        <div id="stepper"></div>
+
+        <section class="card section table-wrap" data-table="cashflow">
+          <table>
+            <thead>
+              <tr>
+                <th>Poste</th>
+                <th>FY N</th>
+                <th>FY N-1</th>
+                <th>FY N-2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Capex</td><td><input data-key="capex" data-year="N" type="number" /></td><td><input data-key="capex" data-year="N-1" type="number" /></td><td><input data-key="capex" data-year="N-2" type="number" /></td></tr>
+              <tr><td>Variation BFR</td><td><input data-key="deltaWcr" data-year="N" type="number" /></td><td><input data-key="deltaWcr" data-year="N-1" type="number" /></td><td><input data-key="deltaWcr" data-year="N-2" type="number" /></td></tr>
+              <tr><td>Dividendes (optionnel)</td><td><input data-key="dividends" data-year="N" type="number" /></td><td><input data-key="dividends" data-year="N-1" type="number" /></td><td><input data-key="dividends" data-year="N-2" type="number" /></td></tr>
+              <tr><td>Lignes confirmées non tirées (montant)</td><td><input data-key="undrawnCommitted" data-year="N" type="number" /></td><td><input data-key="undrawnCommitted" data-year="N-1" type="number" /></td><td><input data-key="undrawnCommitted" data-year="N-2" type="number" /></td></tr>
+              <tr><td>Lignes confirmées non tirées (maturité)</td><td><input data-key="undrawnMaturity" data-year="N" data-type="text" type="text" /></td><td><input data-key="undrawnMaturity" data-year="N-1" data-type="text" type="text" /></td><td><input data-key="undrawnMaturity" data-year="N-2" data-type="text" type="text" /></td></tr>
+            </tbody>
+          </table>
+          <div class="actions">
+            <a class="btn secondary" href="./inputs-income-statement.html">Retour compte de résultat</a>
+            <a class="btn" href="./economic-balance.html">Vers bilan économique</a>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="../assets/js/app.js"></script>
+  </body>
+</html>

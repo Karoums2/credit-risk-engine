@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paramètres &amp; Méthodologie</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body data-root=".." data-nav="settings" data-page="settings-methodology">
+    <main class="page">
+      <div class="container">
+        <header class="page-header">
+          <h1>Paramètres &amp; Méthodologie</h1>
+          <p class="muted">Pondérations, mapping, PD/LGD/EAD et hypothèses de stress éditables en localStorage.</p>
+        </header>
+
+        <form id="methodologyForm" class="grid section">
+          <section class="card">
+            <h2>Pondérations score global</h2>
+            <div class="grid grid-2">
+              <label class="field">Structure <input id="weightStructure" type="number" step="0.01" /></label>
+              <label class="field">Liquidité <input id="weightLiquidity" type="number" step="0.01" /></label>
+              <label class="field">Business <input id="weightBusiness" type="number" step="0.01" /></label>
+              <label class="field">Gouvernance <input id="weightGovernance" type="number" step="0.01" /></label>
+            </div>
+          </section>
+
+          <section class="card">
+            <h2>Paramètres PD</h2>
+            <div class="grid grid-3">
+              <label class="field">a <input id="pdA" type="number" step="0.001" /></label>
+              <label class="field">b <input id="pdB" type="number" step="0.01" /></label>
+              <label class="field">Horizon (années) <input id="pdHorizon" type="number" step="1" /></label>
+            </div>
+          </section>
+
+          <section class="card">
+            <h2>Hypothèses stress</h2>
+            <div class="grid grid-2">
+              <label class="field">EBITDA shock (ex: -0.2) <input id="stressEbitda" type="number" step="0.01" /></label>
+              <label class="field">Rates shock (bps) <input id="stressRates" type="number" step="1" /></label>
+            </div>
+          </section>
+
+          <section class="card">
+            <h2>Hypothèses LGD / EAD</h2>
+            <div class="grid grid-3">
+              <label class="field">LGD min <input id="lgdMin" type="number" step="0.01" /></label>
+              <label class="field">LGD max <input id="lgdMax" type="number" step="0.01" /></label>
+              <label class="field">EAD c (CCF) <input id="eadCcf" type="number" step="0.01" /></label>
+            </div>
+          </section>
+
+          <section class="card">
+            <h2>Secteurs (liste)</h2>
+            <label class="field">
+              Séparer par des virgules
+              <textarea id="sectors"></textarea>
+            </label>
+          </section>
+
+          <div class="actions">
+            <button type="submit" class="btn">Enregistrer paramètres</button>
+            <a class="btn secondary" href="../simulation/preamble.html">Retour simulation</a>
+          </div>
+        </form>
+      </div>
+    </main>
+    <script src="../assets/js/app.js"></script>
+  </body>
+</html>

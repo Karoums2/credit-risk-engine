@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulation - Scoring</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body data-root=".." data-nav="simulation" data-page="simulation-scoring" data-step="scoring">
+    <main class="page">
+      <div class="container">
+        <header class="page-header">
+          <h1>Scoring</h1>
+          <p class="muted">8 indicateurs, 4 paires, matrices 10x10 et score global pondéré.</p>
+        </header>
+        <div id="stepper"></div>
+
+        <section class="card section">
+          <h2>Questionnaire gouvernance / stratégique</h2>
+          <div class="field-row">
+            <label class="field">Qualité gouvernance (1-10) <input id="governanceScore" type="number" min="1" max="10" value="5" /></label>
+            <label class="field">Risque stratégique (1-10) <input id="strategyScore" type="number" min="1" max="10" value="5" /></label>
+          </div>
+        </section>
+
+        <section class="grid grid-2 section">
+          <article class="card">
+            <h3>Paire 1 - Structure</h3>
+            <p class="muted">Levier = Dette nette / EBITDA | Couverture = EBITDA / Charges financières</p>
+            <p>Levier: <strong id="levier">0</strong> | Couverture: <strong id="couverture">0</strong></p>
+            <p>Score paire: <strong id="pairStructure">0</strong></p>
+            <div id="heatmapStructure"></div>
+          </article>
+
+          <article class="card">
+            <h3>Paire 2 - Liquidité</h3>
+            <p class="muted">FCF = RN + Amortissements - ΔBFR - Capex | Liquidité CT = (Cash + lignes confirmées) / Dette &lt; 12 mois</p>
+            <p>FCF/EBITDA: <strong id="fcf">0</strong> | Liquidité CT: <strong id="liquidite">0</strong></p>
+            <p>Score paire: <strong id="pairLiquidite">0</strong></p>
+            <div id="heatmapLiquidite"></div>
+          </article>
+
+          <article class="card">
+            <h3>Paire 3 - Business</h3>
+            <p class="muted">Stabilité revenus = volatilité CA (σ/μ) | Visibilité marges = volatilité EBITDA (σ/μ)</p>
+            <p>Volatilité CA: <strong id="volCa">0</strong> | Volatilité EBITDA: <strong id="volEbitda">0</strong></p>
+            <p>Score paire: <strong id="pairBusiness">0</strong></p>
+            <div id="heatmapBusiness"></div>
+          </article>
+
+          <article class="card">
+            <h3>Paire 4 - Gouvernance / stratégique</h3>
+            <p class="muted">Questionnaires scorés 1-10 sur la qualité de gouvernance et le risque stratégique.</p>
+            <p>Score paire: <strong id="pairGouv">0</strong></p>
+            <div id="heatmapGouv"></div>
+          </article>
+        </section>
+
+        <section class="card section">
+          <h2>Synthèse</h2>
+          <p>Score global: <strong id="globalScore">0</strong> / 100</p>
+          <p>Rating: <strong id="globalRating">BBB</strong></p>
+          <p class="muted" id="pairLegend">-</p>
+          <div class="legend">
+            <span><span class="dot low"></span>Faible</span>
+            <span><span class="dot mid"></span>Moyen</span>
+            <span><span class="dot high"></span>Élevé</span>
+          </div>
+        </section>
+
+        <div class="actions section">
+          <a class="btn secondary" href="./economic-balance.html">Retour bilan économique</a>
+          <a class="btn" href="./run.html">Vers simulation complète</a>
+        </div>
+      </div>
+    </main>
+    <script src="../assets/js/app.js"></script>
+  </body>
+</html>
