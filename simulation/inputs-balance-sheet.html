@@ -19,30 +19,120 @@
           <table>
             <thead>
               <tr>
-                <th>Poste</th>
+                <th>Ligne</th>
                 <th>FY N</th>
                 <th>FY N-1</th>
                 <th>FY N-2</th>
+                <th>Validation</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td><strong>Actifs</strong></td><td></td><td></td><td></td></tr>
-              <tr><td>Immos corporelles</td><td><input data-key="tangibleFixedAssets" data-year="N" type="number" /></td><td><input data-key="tangibleFixedAssets" data-year="N-1" type="number" /></td><td><input data-key="tangibleFixedAssets" data-year="N-2" type="number" /></td></tr>
-              <tr><td>Immos incorporelles</td><td><input data-key="intangibleFixedAssets" data-year="N" type="number" /></td><td><input data-key="intangibleFixedAssets" data-year="N-1" type="number" /></td><td><input data-key="intangibleFixedAssets" data-year="N-2" type="number" /></td></tr>
-              <tr><td>Immos financières</td><td><input data-key="financialFixedAssets" data-year="N" type="number" /></td><td><input data-key="financialFixedAssets" data-year="N-1" type="number" /></td><td><input data-key="financialFixedAssets" data-year="N-2" type="number" /></td></tr>
-              <tr><td>Stocks</td><td><input data-key="inventory" data-year="N" type="number" /></td><td><input data-key="inventory" data-year="N-1" type="number" /></td><td><input data-key="inventory" data-year="N-2" type="number" /></td></tr>
-              <tr><td>Créances clients</td><td><input data-key="receivables" data-year="N" type="number" /></td><td><input data-key="receivables" data-year="N-1" type="number" /></td><td><input data-key="receivables" data-year="N-2" type="number" /></td></tr>
-              <tr><td>Trésorerie &amp; équivalents</td><td><input data-key="cash" data-year="N" type="number" /></td><td><input data-key="cash" data-year="N-1" type="number" /></td><td><input data-key="cash" data-year="N-2" type="number" /></td></tr>
-              <tr><td><strong>Passifs</strong></td><td></td><td></td><td></td></tr>
-              <tr><td>Dettes fournisseurs (exploitation)</td><td><input data-key="tradePayables" data-year="N" type="number" /></td><td><input data-key="tradePayables" data-year="N-1" type="number" /></td><td><input data-key="tradePayables" data-year="N-2" type="number" /></td></tr>
-              <tr><td>Dettes financières CT</td><td><input data-key="shortTermDebt" data-year="N" type="number" /></td><td><input data-key="shortTermDebt" data-year="N-1" type="number" /></td><td><input data-key="shortTermDebt" data-year="N-2" type="number" /></td></tr>
-              <tr><td>Dettes financières LT</td><td><input data-key="longTermDebt" data-year="N" type="number" /></td><td><input data-key="longTermDebt" data-year="N-1" type="number" /></td><td><input data-key="longTermDebt" data-year="N-2" type="number" /></td></tr>
-              <tr><td>Dette variable (optionnel)</td><td><input data-key="variableDebt" data-year="N" type="number" /></td><td><input data-key="variableDebt" data-year="N-1" type="number" /></td><td><input data-key="variableDebt" data-year="N-2" type="number" /></td></tr>
-              <tr><td>Dette fixe (optionnel)</td><td><input data-key="fixedDebt" data-year="N" type="number" /></td><td><input data-key="fixedDebt" data-year="N-1" type="number" /></td><td><input data-key="fixedDebt" data-year="N-2" type="number" /></td></tr>
-              <tr><td>Capitaux propres</td><td><input data-key="equity" data-year="N" type="number" /></td><td><input data-key="equity" data-year="N-1" type="number" /></td><td><input data-key="equity" data-year="N-2" type="number" /></td></tr>
+              <tr class="table-group-row"><td><strong>Actifs</strong></td><td></td><td></td><td></td><td></td></tr>
+              <tr>
+                <td>Immos corporelles</td>
+                <td><input data-key="tangibleFixedAssets" data-year="N" type="number" /></td>
+                <td><input data-key="tangibleFixedAssets" data-year="N-1" type="number" /></td>
+                <td><input data-key="tangibleFixedAssets" data-year="N-2" type="number" /></td>
+                <td data-validation="tangibleFixedAssets"></td>
+              </tr>
+              <tr>
+                <td>Immos incorporelles</td>
+                <td><input data-key="intangibleFixedAssets" data-year="N" type="number" /></td>
+                <td><input data-key="intangibleFixedAssets" data-year="N-1" type="number" /></td>
+                <td><input data-key="intangibleFixedAssets" data-year="N-2" type="number" /></td>
+                <td data-validation="intangibleFixedAssets"></td>
+              </tr>
+              <tr>
+                <td>Immos financières</td>
+                <td><input data-key="financialFixedAssets" data-year="N" type="number" /></td>
+                <td><input data-key="financialFixedAssets" data-year="N-1" type="number" /></td>
+                <td><input data-key="financialFixedAssets" data-year="N-2" type="number" /></td>
+                <td data-validation="financialFixedAssets"></td>
+              </tr>
+              <tr>
+                <td>Stocks</td>
+                <td><input data-key="inventory" data-year="N" type="number" /></td>
+                <td><input data-key="inventory" data-year="N-1" type="number" /></td>
+                <td><input data-key="inventory" data-year="N-2" type="number" /></td>
+                <td data-validation="inventory"></td>
+              </tr>
+              <tr>
+                <td>Créances clients</td>
+                <td><input data-key="receivables" data-year="N" type="number" /></td>
+                <td><input data-key="receivables" data-year="N-1" type="number" /></td>
+                <td><input data-key="receivables" data-year="N-2" type="number" /></td>
+                <td data-validation="receivables"></td>
+              </tr>
+              <tr>
+                <td>Trésorerie &amp; équivalents</td>
+                <td><input data-key="cash" data-year="N" type="number" /></td>
+                <td><input data-key="cash" data-year="N-1" type="number" /></td>
+                <td><input data-key="cash" data-year="N-2" type="number" /></td>
+                <td data-validation="cash"></td>
+              </tr>
+              <tr class="table-total-row">
+                <td><strong>Total Actifs</strong></td>
+                <td id="totalAssetsN">0</td>
+                <td id="totalAssetsN1">0</td>
+                <td id="totalAssetsN2">0</td>
+                <td><span class="badge neutral">Auto</span></td>
+              </tr>
+
+              <tr class="table-group-row"><td><strong>Passifs</strong></td><td></td><td></td><td></td><td></td></tr>
+              <tr>
+                <td>Dettes fournisseurs (exploitation)</td>
+                <td><input data-key="tradePayables" data-year="N" type="number" /></td>
+                <td><input data-key="tradePayables" data-year="N-1" type="number" /></td>
+                <td><input data-key="tradePayables" data-year="N-2" type="number" /></td>
+                <td data-validation="tradePayables"></td>
+              </tr>
+              <tr>
+                <td>Dettes financières CT</td>
+                <td><input data-key="shortTermDebt" data-year="N" type="number" /></td>
+                <td><input data-key="shortTermDebt" data-year="N-1" type="number" /></td>
+                <td><input data-key="shortTermDebt" data-year="N-2" type="number" /></td>
+                <td data-validation="shortTermDebt"></td>
+              </tr>
+              <tr>
+                <td>Dettes financières LT</td>
+                <td><input data-key="longTermDebt" data-year="N" type="number" /></td>
+                <td><input data-key="longTermDebt" data-year="N-1" type="number" /></td>
+                <td><input data-key="longTermDebt" data-year="N-2" type="number" /></td>
+                <td data-validation="longTermDebt"></td>
+              </tr>
+              <tr>
+                <td>Dette variable (optionnel)</td>
+                <td><input data-key="variableDebt" data-year="N" type="number" /></td>
+                <td><input data-key="variableDebt" data-year="N-1" type="number" /></td>
+                <td><input data-key="variableDebt" data-year="N-2" type="number" /></td>
+                <td data-validation="variableDebt"></td>
+              </tr>
+              <tr>
+                <td>Dette fixe (optionnel)</td>
+                <td><input data-key="fixedDebt" data-year="N" type="number" /></td>
+                <td><input data-key="fixedDebt" data-year="N-1" type="number" /></td>
+                <td><input data-key="fixedDebt" data-year="N-2" type="number" /></td>
+                <td data-validation="fixedDebt"></td>
+              </tr>
+              <tr>
+                <td>Capitaux propres</td>
+                <td><input data-key="equity" data-year="N" type="number" /></td>
+                <td><input data-key="equity" data-year="N-1" type="number" /></td>
+                <td><input data-key="equity" data-year="N-2" type="number" /></td>
+                <td data-validation="equity"></td>
+              </tr>
+              <tr class="table-total-row">
+                <td><strong>Total Passifs</strong></td>
+                <td id="totalLiabilitiesN">0</td>
+                <td id="totalLiabilitiesN1">0</td>
+                <td id="totalLiabilitiesN2">0</td>
+                <td><span class="badge neutral">Auto</span></td>
+              </tr>
             </tbody>
           </table>
-          <div class="actions">
+          <div class="actions actions-spread">
+            <button id="clearBalanceBtn" type="button" class="btn secondary">Vider les champs</button>
+            <a class="btn secondary" href="./preamble.html">Retour au préambule</a>
             <a class="btn" href="./inputs-income-statement.html">Continuer vers compte de résultat</a>
           </div>
         </section>

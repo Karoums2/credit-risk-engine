@@ -577,10 +577,78 @@
 
   function initBalanceSheet() {
     initYearTable("balance", analysis.inputs.balance);
+    const balanceInputs = Array.from(document.querySelectorAll('[data-table="balance"] input[data-key]'));
+    const validationCells = Array.from(document.querySelectorAll('[data-table="balance"] [data-validation]'));
+
+    balanceInputs.forEach((input) => {
+      if (String(input.value) === "0") input.value = "";
+    });
+
+    const assetKeys = [
+      "tangibleFixedAssets",
+      "intangibleFixedAssets",
+      "financialFixedAssets",
+      "inventory",
+      "receivables",
+      "cash"
+    ];
+    const liabilityKeys = ["tradePayables", "shortTermDebt", "longTermDebt", "variableDebt", "fixedDebt", "equity"];
+
+    function isRowComplete(key) {
+      const rowInputs = balanceInputs.filter((input) => input.dataset.key === key);
+      return rowInputs.every((input) => {
+        const raw = String(input.value ?? "").trim();
+        return raw !== "" && raw !== "0";
+      });
+    }
+
+    function sumKeysForYear(keys, year) {
+      return keys.reduce((sum, key) => sum + toNumber(analysis.inputs.balance[key][year]), 0);
+    }
+
+    function updateTotals() {
+      const ids = {
+        totalAssetsN: sumKeysForYear(assetKeys, "N"),
+        totalAssetsN1: sumKeysForYear(assetKeys, "N-1"),
+        totalAssetsN2: sumKeysForYear(assetKeys, "N-2"),
+        totalLiabilitiesN: sumKeysForYear(liabilityKeys, "N"),
+        totalLiabilitiesN1: sumKeysForYear(liabilityKeys, "N-1"),
+        totalLiabilitiesN2: sumKeysForYear(liabilityKeys, "N-2")
+      };
+      Object.entries(ids).forEach(([id, value]) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = Number(value).toLocaleString("fr-FR");
+      });
+    }
+
+    function updateValidation() {
+      validationCells.forEach((cell) => {
+        const key = cell.dataset.validation;
+        cell.innerHTML = validationBadge(isRowComplete(key));
+      });
+      updateTotals();
+    }
+
+    balanceInputs.forEach((input) => {
+      input.addEventListener("input", updateValidation);
+    });
+
+    document.getElementById("clearBalanceBtn")?.addEventListener("click", () => {
+      balanceInputs.forEach((input) => {
+        const key = input.dataset.key;
+        const year = input.dataset.year;
+        input.value = "";
+        analysis.inputs.balance[key][year] = 0;
+      });
+      updateValidation();
+      saveAll();
+    });
+
+    updateValidation();
   }
 
-  function validationBadge(value) {
-    return value === 0 || value === "" ? `<span class="badge warn">Manquant</span>` : `<span class="badge success">OK</span>`;
+  function validationBadge(isComplete) {
+    return isComplete ? `<span class="badge success">Complet</span>` : `<span class="badge warn">Manquant</span>`;
   }
 
   function initIncomeStatement() {

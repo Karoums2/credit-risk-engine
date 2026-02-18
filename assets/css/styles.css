@@ -278,6 +278,10 @@ th {
   margin-top: 16px;
 }
 
+.actions.actions-spread {
+  justify-content: space-between;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -358,6 +362,20 @@ th {
 .badge.danger {
   color: var(--danger);
   background: #fde8e8;
+}
+
+.badge.neutral {
+  color: #6b7280;
+  background: #eef1f5;
+}
+
+.table-group-row td {
+  background: #f6f8fb;
+  font-weight: 600;
+}
+
+.table-total-row td {
+  background: #fbfcfe;
 }
 
 .list-plain {
