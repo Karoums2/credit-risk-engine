@@ -314,6 +314,10 @@ th {
   justify-self: end;
 }
 
+.action-next {
+  justify-self: end;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
