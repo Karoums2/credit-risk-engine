@@ -3,6 +3,7 @@
   const METHODOLOGY_KEY = "cre_methodology";
 
   const YEAR_KEYS = ["N", "N-1", "N-2"];
+  const PAIR_SCORE_MATRIX = buildPairMatrix();
 
   const defaultMethodology = () => ({
     weights: { structure: 0.3, liquidite: 0.3, business: 0.25, gouvernance: 0.15 },
@@ -103,6 +104,12 @@
 
   function byYear(initialValue) {
     return { N: initialValue, "N-1": initialValue, "N-2": initialValue };
+  }
+
+  function buildPairMatrix() {
+    return Array.from({ length: 10 }, (_, rowIdx) =>
+      Array.from({ length: 10 }, (_, colIdx) => (rowIdx + 1) * (colIdx + 1))
+    );
   }
 
   function loadJSON(key, fallback) {
@@ -228,6 +235,12 @@
     return "Critique";
   }
 
+  function pairScoreFromMatrix(scoreA, scoreB) {
+    const row = clamp(Math.round(scoreA), 1, 10) - 1;
+    const col = clamp(Math.round(scoreB), 1, 10) - 1;
+    return PAIR_SCORE_MATRIX[row][col];
+  }
+
   function ratingFromGlobal(score) {
     const rounded = Math.round(score);
     const found = methodology.ratingThresholds.find((r) => rounded <= r.max);
@@ -305,10 +318,10 @@
     };
 
     const pairs = {
-      structure: sc.leverage * sc.coverage,
-      liquidite: sc.fcfRatio * sc.liquidityCt,
-      business: sc.revenueVol * sc.ebitdaVol,
-      gouvernance: sc.governanceQ * sc.strategyQ
+      structure: pairScoreFromMatrix(sc.leverage, sc.coverage),
+      liquidite: pairScoreFromMatrix(sc.fcfRatio, sc.liquidityCt),
+      business: pairScoreFromMatrix(sc.revenueVol, sc.ebitdaVol),
+      gouvernance: pairScoreFromMatrix(sc.governanceQ, sc.strategyQ)
     };
 
     const globalScore =
@@ -619,6 +632,7 @@
 
     governance?.addEventListener("input", refresh);
     strategy?.addEventListener("input", refresh);
+    renderMatrixTable("scoringMatrix");
     refresh();
   }
 
@@ -671,8 +685,8 @@
     const rows = [];
     for (let y = 10; y >= 1; y -= 1) {
       for (let x = 1; x <= 10; x += 1) {
-        const pair = x * y;
-        const levelClass = pair <= 19 ? "#dff3e6" : pair <= 39 ? "#ffe3b9" : pair <= 69 ? "#ffd19f" : "#f3b2b2";
+        const pair = pairScoreFromMatrix(x, y);
+        const levelClass = riskColor(pair);
         const pointClass = x === scoreA && y === scoreB ? "heatmap-point" : "";
         rows.push(`<div class="heatmap-cell ${pointClass}" style="background:${levelClass}" title="(${x},${y}) => ${pair}"></div>`);
       }
@@ -874,6 +888,7 @@
       const el = document.getElementById(id);
       if (el) el.value = value;
     });
+    renderMatrixTable("methodologyMatrix");
 
     document.getElementById("methodologyForm")?.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -901,6 +916,29 @@
 
   function fmtCurrency(n) {
     return `${Number(n || 0).toLocaleString("fr-FR", { maximumFractionDigits: 0 })} €`;
+  }
+
+  function riskColor(score) {
+    if (score <= 19) return "#0e8a16";
+    if (score <= 39) return "#f2f50d";
+    if (score <= 69) return "#f2b907";
+    if (score <= 89) return "#f26419";
+    return "#ed1c24";
+  }
+
+  function renderMatrixTable(id) {
+    const table = document.getElementById(id);
+    if (!table) return;
+    const header = `<tr><th>A\\B</th>${Array.from({ length: 10 }, (_, i) => `<th>${i + 1}</th>`).join("")}</tr>`;
+    const rows = Array.from({ length: 10 }, (_, rowIdx) => {
+      const rowLabel = `<th>${rowIdx + 1}</th>`;
+      const cells = Array.from({ length: 10 }, (_, colIdx) => {
+        const val = PAIR_SCORE_MATRIX[rowIdx][colIdx];
+        return `<td style="background:${riskColor(val)}">${val}</td>`;
+      }).join("");
+      return `<tr>${rowLabel}${cells}</tr>`;
+    }).join("");
+    table.innerHTML = `<thead>${header}</thead><tbody>${rows}</tbody>`;
   }
 
   function boot() {

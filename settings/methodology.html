@@ -16,6 +16,37 @@
 
         <form id="methodologyForm" class="grid section">
           <section class="card">
+            <h2>1) Logique des 4 piliers</h2>
+            <p class="muted">
+              Le modèle est structuré autour de quatre dimensions clés inspirées des pratiques crédit corporate:
+              <strong>Structure financière</strong>, <strong>Liquidité &amp; cash-flow</strong>,
+              <strong>Business &amp; volatilité</strong> et <strong>Gouvernance &amp; risque stratégique</strong>.
+            </p>
+            <div class="grid grid-2 section">
+              <div class="card"><strong>Structure (30%)</strong><br />Mesure la solvabilité long terme via levier et couverture.</div>
+              <div class="card"><strong>Liquidité (30%)</strong><br />Mesure la capacité à absorber un choc court terme.</div>
+              <div class="card"><strong>Business (25%)</strong><br />Mesure la stabilité économique et la visibilité des flux.</div>
+              <div class="card"><strong>Gouvernance (15%)</strong><br />Capte les risques non financiers déclencheurs en stress.</div>
+            </div>
+          </section>
+
+          <section class="card">
+            <h2>2) Matrice 10x10 - coeur du scoring</h2>
+            <p class="muted">
+              Chaque indicateur est transformé en score 1-10 puis combiné en paire via matrice:
+              <strong>Score paire = score A × score B</strong>.
+            </p>
+            <div class="matrix-wrap section">
+              <table class="matrix-table" id="methodologyMatrix"></table>
+            </div>
+            <div class="legend">
+              <span><span class="dot low"></span>1-19 faible</span>
+              <span><span class="dot mid"></span>20-69 moyen/fort</span>
+              <span><span class="dot high"></span>70-100 majeur/critique</span>
+            </div>
+          </section>
+
+          <section class="card">
             <h2>Pondérations score global</h2>
             <div class="grid grid-2">
               <label class="field">Structure <input id="weightStructure" type="number" step="0.01" /></label>

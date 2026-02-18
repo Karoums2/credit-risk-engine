@@ -197,6 +197,25 @@ label {
   background: #fff;
 }
 
+.segment-card {
+  position: relative;
+  border-top: 4px solid var(--primary);
+}
+
+.segment-card h2 {
+  margin-bottom: 8px;
+}
+
+.segment-card .segment-tag {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--secondary);
+  background: #e9f0f8;
+}
+
 .field {
   display: grid;
   gap: 6px;
@@ -425,6 +444,29 @@ th {
 .heatmap-point {
   outline: 2px solid #0f172a;
   outline-offset: -2px;
+}
+
+.matrix-wrap {
+  overflow-x: auto;
+}
+
+.matrix-table {
+  border-collapse: collapse;
+  min-width: 820px;
+}
+
+.matrix-table th,
+.matrix-table td {
+  border: 1px solid #d5dbe5;
+  text-align: center;
+  padding: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.matrix-table th {
+  background: #f3f6fa;
+  color: #1f2937;
 }
 
 .bars {
