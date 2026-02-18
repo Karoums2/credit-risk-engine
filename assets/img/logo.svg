@@ -1,9 +1,13 @@
 <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <defs>
     <linearGradient id="silverFill" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#d7dee6" />
-      <stop offset="55%" stop-color="#b7c0ca" />
+      <stop offset="0%" stop-color="#f2f5f8" />
+      <stop offset="45%" stop-color="#d6dde4" />
       <stop offset="100%" stop-color="#8f99a3" />
+    </linearGradient>
+    <linearGradient id="silverEdge" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#aab3bd" />
+      <stop offset="100%" stop-color="#d9e0e7" />
     </linearGradient>
   </defs>
   <circle
@@ -22,8 +26,8 @@
     cy="64"
     r="45"
     fill="none"
-    stroke="#6f7c86"
-    stroke-width="1.2"
+    stroke="url(#silverEdge)"
+    stroke-width="1"
     stroke-linecap="round"
     stroke-dasharray="220 76"
     transform="rotate(0 64 64)"
@@ -44,8 +48,8 @@
     cy="64"
     r="31"
     fill="none"
-    stroke="#6f7c86"
-    stroke-width="1.1"
+    stroke="url(#silverEdge)"
+    stroke-width="1"
     stroke-linecap="round"
     stroke-dasharray="154 58"
     transform="rotate(0 64 64)"
@@ -66,8 +70,8 @@
     cy="64"
     r="18"
     fill="none"
-    stroke="#6f7c86"
-    stroke-width="1"
+    stroke="url(#silverEdge)"
+    stroke-width="0.9"
     stroke-linecap="round"
     stroke-dasharray="90 42"
     transform="rotate(0 64 64)"
