@@ -469,6 +469,34 @@ th {
   color: #1f2937;
 }
 
+.matrix-table td.matrix-cell-selected {
+  outline: 2px solid #1f2937;
+  outline-offset: -2px;
+}
+
+.matrix-legend {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.matrix-pill {
+  text-align: center;
+  border-radius: 8px;
+  padding: 6px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.matrix-pill.level-1 { background: #0e8a16; }
+.matrix-pill.level-2 { background: #61b13f; }
+.matrix-pill.level-3 { background: #d6d71f; color: #1c1c1c; }
+.matrix-pill.level-4 { background: #f0ab13; color: #1c1c1c; }
+.matrix-pill.level-5 { background: #ea6b2f; }
+.matrix-pill.level-6 { background: #e21d23; }
+
 .bars {
   display: grid;
   grid-template-columns: repeat(20, minmax(0, 1fr));

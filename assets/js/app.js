@@ -930,11 +930,17 @@
     const table = document.getElementById(id);
     if (!table) return;
     const header = `<tr><th>A\\B</th>${Array.from({ length: 10 }, (_, i) => `<th>${i + 1}</th>`).join("")}</tr>`;
+    let selectedDone = false;
     const rows = Array.from({ length: 10 }, (_, rowIdx) => {
       const rowLabel = `<th>${rowIdx + 1}</th>`;
       const cells = Array.from({ length: 10 }, (_, colIdx) => {
         const val = PAIR_SCORE_MATRIX[rowIdx][colIdx];
-        return `<td style="background:${riskColor(val)}">${val}</td>`;
+        let selectedClass = "";
+        if (!selectedDone && val === 90) {
+          selectedClass = "matrix-cell-selected";
+          selectedDone = true;
+        }
+        return `<td class="${selectedClass}" style="background:${riskColor(val)}">${val}</td>`;
       }).join("");
       return `<tr>${rowLabel}${cells}</tr>`;
     }).join("");
