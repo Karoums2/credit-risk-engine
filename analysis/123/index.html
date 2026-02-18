@@ -1,0 +1,92 @@
+ <!DOCTYPE html>
+ <html lang="fr">
+ <head>
+   <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta name="theme-color" content="#0b2a4a" />
+   <meta name="referrer" content="strict-origin-when-cross-origin" />
+   <title>Analyse - Vue dossier</title>
+   <link rel="stylesheet" href="/styles.css" />
+ </head>
+ <body>
+  <header>
+    <nav class="nav">
+      <div class="nav-logo">
+        <img src="/assets/logo.svg" alt="" class="nav-logo-img" />
+        <span class="nav-logo-text">CHAABENA CONSULTING CAPITAL</span>
+      </div>
+      <div class="nav-links">
+        <a href="/">Accueil</a>
+        <a href="/analysis/new/preamble/">Simulation</a>
+        <a href="/analysis/123/export/pdf/">Génération PDF</a>
+        <a href="/settings/methodology/">Paramètres &amp; Méthodologie</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="card-header">
+      <div>
+        <h1 class="page-title tight">Helios Energy</h1>
+        <p class="subtitle">Analyse 123 · Secteur Energie · EUR</p>
+      </div>
+      <span class="status-chip">Statut: Draft</span>
+    </div>
+ 
+    <div class="tabs-inline">
+      <a class="active" href="/analysis/123/">Inputs</a>
+      <a href="/analysis/new/scoring/">Scoring</a>
+      <a href="/analysis/new/simulation/">Simulation</a>
+      <a href="/analysis/123/report/">Report</a>
+    </div>
+ 
+    <div class="grid grid-2">
+      <div class="card">
+         <div class="card-title">Résumé des inputs</div>
+         <p class="muted">Données financières consolidées (FY N à N-2).</p>
+         <div class="divider"></div>
+         <div class="metrics">
+           <div class="metric">
+             <strong>CA</strong>
+             <span class="muted">--</span>
+           </div>
+           <div class="metric">
+             <strong>EBITDA</strong>
+             <span class="muted">--</span>
+           </div>
+           <div class="metric">
+             <strong>Dette nette</strong>
+             <span class="muted">--</span>
+           </div>
+           <div class="metric">
+             <strong>BFR</strong>
+             <span class="muted">--</span>
+           </div>
+         </div>
+         <div class="footer-actions">
+           <a class="btn secondary" href="/analysis/new/preamble/">Modifier les inputs</a>
+         </div>
+      </div>
+
+      <div class="card">
+         <div class="card-title">Scores clés</div>
+         <p class="muted">Affichage valeur + score + interprétation.</p>
+         <div class="divider"></div>
+         <div class="grid">
+           <div class="inline-field">Score global: --</div>
+           <div class="inline-field">PD base: --</div>
+           <div class="inline-field">Rating interne: --</div>
+           <div class="inline-field">Commentaire: --</div>
+         </div>
+         <div class="footer-actions">
+           <a class="btn" href="/analysis/123/report/">Ouvrir le report</a>
+         </div>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content">Karim CHAABENA · Paris, France · 2026</div>
+  </footer>
+ </body>
+</html>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulation - Scoring</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body data-page="scoring" data-nav="simulation">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../index.html">
+          <img src="../assets/img/logo.svg" alt="Logo argenté CHAABENA CONSULTING CAPITAL" />
+          <span class="brand-title">CHAABENA CONSULTING CAPITAL</span>
+        </a>
+        <nav class="main-nav">
+          <a data-nav="home" href="../index.html">Accueil</a>
+          <a data-nav="simulation" href="./preamble.html">Simulation</a>
+          <a data-nav="pdf" href="../export/pdf.html">Génération PDF</a>
+          <a data-nav="settings" href="../settings/methodology.html">Paramètres &amp; Méthodologie</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="container">
+        <section class="page-header">
+          <h1>Scoring</h1>
+          <p class="note">8 indicateurs en 4 paires, mapping 1-10, score paire via matrice 10x10.</p>
+        </section>
+
+        <div class="stepper">
+          <div class="stepper-item">Préambule</div>
+          <div class="stepper-item">Inputs</div>
+          <div class="stepper-item">2. Bilan économique</div>
+          <div class="stepper-item active">3. Scoring</div>
+          <div class="stepper-item">4. Simulation</div>
+        </div>
+
+        <section class="card section">
+          <div class="grid-2">
+            <div class="field">
+              <label for="governanceQuality">Qualité gouvernance (1-10)</label>
+              <input id="governanceQuality" data-bind="scoring.metrics.governanceQuality" type="number" min="1" max="10" />
+            </div>
+            <div class="field">
+              <label for="strategicRisk">Risque stratégique (1-10)</label>
+              <input id="strategicRisk" data-bind="scoring.metrics.strategicRisk" type="number" min="1" max="10" />
+            </div>
+          </div>
+        </section>
+
+        <section class="card section table-wrap">
+          <table>
+            <thead>
+              <tr><th>Indicateur</th><th>Métrique</th><th>Score 1-10</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Levier = Dette nette / EBITDA</td><td id="levierMetric">-</td><td id="levierScore">-</td></tr>
+              <tr><td>Couverture = EBITDA / Charges financières</td><td id="couvertureMetric">-</td><td id="couvertureScore">-</td></tr>
+              <tr><td>Génération cash = FCF / EBITDA</td><td id="fcfEbitdaMetric">-</td><td id="fcfEbitdaScore">-</td></tr>
+              <tr><td>Liquidité CT = (Cash + lignes confirmées) / Dette &lt; 12 mois</td><td id="liquiditeCtMetric">-</td><td id="liquiditeCtScore">-</td></tr>
+              <tr><td>Stabilité revenus = σ/μ CA (3 ans)</td><td id="stabiliteMetric">-</td><td id="stabiliteScore">-</td></tr>
+              <tr><td>Visibilité / marges = σ/μ EBITDA (3 ans)</td><td id="visibiliteMetric">-</td><td id="visibiliteScore">-</td></tr>
+              <tr><td>Qualité gouvernance</td><td id="gouvernanceMetric">-</td><td id="gouvernanceScore">-</td></tr>
+              <tr><td>Risque stratégique</td><td id="risqueStrategiqueMetric">-</td><td id="risqueStrategiqueScore">-</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="kpi-grid section">
+          <div class="kpi"><p class="label">Paire Structure</p><p class="value" id="pairStructure">-</p></div>
+          <div class="kpi"><p class="label">Paire Liquidité</p><p class="value" id="pairLiquidite">-</p></div>
+          <div class="kpi"><p class="label">Paire Business</p><p class="value" id="pairBusiness">-</p></div>
+          <div class="kpi"><p class="label">Paire Gouvernance</p><p class="value" id="pairGouv">-</p></div>
+        </section>
+
+        <section class="grid-2 section">
+          <article class="card table-wrap">
+            <h3>Heatmap 10x10 - Paire Structure</h3>
+            <table class="heatmap" id="heatmapStructure"></table>
+          </article>
+          <article class="card table-wrap">
+            <h3>Heatmap 10x10 - Paire Liquidité</h3>
+            <table class="heatmap" id="heatmapLiquidity"></table>
+          </article>
+          <article class="card table-wrap">
+            <h3>Heatmap 10x10 - Paire Business</h3>
+            <table class="heatmap" id="heatmapBusiness"></table>
+          </article>
+          <article class="card table-wrap">
+            <h3>Heatmap 10x10 - Paire Gouvernance</h3>
+            <table class="heatmap" id="heatmapGovernance"></table>
+          </article>
+        </section>
+        <section class="matrix-legend section">
+          <div class="legend-item risk-very-low">1-9 très faible</div>
+          <div class="legend-item risk-low">10-19 faible</div>
+          <div class="legend-item risk-medium">20-39 moyen</div>
+          <div class="legend-item risk-strong">40-69 fort</div>
+          <div class="legend-item risk-major">70-89 majeur</div>
+          <div class="legend-item risk-critical">90-100 critique</div>
+        </section>
+
+        <section class="kpi-grid section">
+          <div class="kpi"><p class="label">Score global</p><p class="value" id="globalScore">-</p></div>
+          <div class="kpi"><p class="label">Rating</p><p class="value" id="ratingValue">-</p></div>
+        </section>
+
+        <div class="btn-row">
+          <a class="btn btn-secondary" href="./economic-balance.html">Retour bilan économique</a>
+          <a class="btn" href="./run.html">Vers simulation complète</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>Karim CHAABENA – Paris, France – 2026</p>
+      </div>
+    </footer>
+
+    <script src="../assets/js/app.js"></script>
+  </body>
+</html>

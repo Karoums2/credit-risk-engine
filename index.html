@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CHAABENA CONSULTING CAPITAL - Accueil</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body data-page="home" data-nav="home">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="./index.html">
+          <img src="./assets/img/logo.svg" alt="Logo argenté CHAABENA CONSULTING CAPITAL" />
+          <span class="brand-title">CHAABENA CONSULTING CAPITAL</span>
+        </a>
+        <nav class="main-nav">
+          <a data-nav="home" href="./index.html">Accueil</a>
+          <a data-nav="simulation" href="./simulation/preamble.html">Simulation</a>
+          <a data-nav="pdf" href="./export/pdf.html">Génération PDF</a>
+          <a data-nav="settings" href="./settings/methodology.html">Paramètres &amp; Méthodologie</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="container">
+        <section class="page-header">
+          <h1>Credit Risk Engine</h1>
+          <p class="note">
+            Plateforme d'analyse du risque de crédit: scoring, stress tests, Monte Carlo et reporting institutionnel.
+          </p>
+        </section>
+
+        <section class="grid-2 section">
+          <article class="card text-justified">
+            <h2>Histoire</h2>
+            <p>
+              Étudiant en Master 2 Programme Grande École à l’ICN Business School, je travaille depuis plus d'un an sur la
+              construction d’une matrice d’analyse et d’un Credit Risk Engine. L’idée est partie d’un constat simple : on
+              dispose souvent de beaucoup de données comptables, mais elles ne donnent pas toujours une vision claire et
+              structurée du risque réel d’une entreprise.
+            </p>
+            <p>
+              J’ai donc cherché à créer un outil qui permette de transformer ces données en quelque chose de plus lisible :
+              un score, une notation, puis une probabilité de défaut. Je ne cherche pas à reproduire la complexité d’un
+              modèle bancaire réglementaire, mais plutôt à proposer une approche rigoureuse, accessible et concrète,
+              adaptée aux TPE et aux PME.
+            </p>
+            <p>
+              Ce projet est pour moi une manière de relier analyse financière, logique de marché et modélisation du risque,
+              tout en restant ancré dans des problématiques concrètes d’entreprise.
+            </p>
+          </article>
+
+          <article class="card">
+            <h2>Objectifs</h2>
+            <div class="objectives-vertical">
+              <div class="field">
+                <label for="objective1">Objectif 1</label>
+                <input id="objective1" data-bind="company.objective1" type="text" />
+              </div>
+              <div class="field">
+                <label for="objective2">Objectif 2</label>
+                <input id="objective2" data-bind="company.objective2" type="text" />
+              </div>
+              <div class="field">
+                <label for="objective3">Objectif 3</label>
+                <input id="objective3" data-bind="company.objective3" type="text" />
+              </div>
+              <div class="field">
+                <label for="objective4">Objectif 4</label>
+                <input id="objective4" data-bind="company.objective4" type="text" />
+              </div>
+            </div>
+          </article>
+
+          <article class="card text-justified">
+            <h2>Apports de la solution</h2>
+            <ul>
+              <li>Analyse financière fondamentale</li>
+              <li>Scoring structuré et interprétation des résultats en temps réel</li>
+              <li>Produire un reporting clair, visuel et exploitable</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h2>Démarrer une simulation</h2>
+            <p class="note">
+              Lancez le wizard complet pour saisir les inputs financiers, générer le scoring et obtenir le rapport final.
+            </p>
+            <div class="btn-center-wrap">
+              <a class="btn" href="./simulation/preamble.html">Commencer la simulation</a>
+            </div>
+          </article>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>Karim CHAABENA – Paris, France – 2026</p>
+      </div>
+    </footer>
+
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>

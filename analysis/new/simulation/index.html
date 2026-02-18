@@ -1,0 +1,222 @@
+ <!DOCTYPE html>
+ <html lang="fr">
+ <head>
+   <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta name="theme-color" content="#0b2a4a" />
+   <meta name="referrer" content="strict-origin-when-cross-origin" />
+   <title>Nouvelle analyse - Simulation</title>
+   <link rel="stylesheet" href="/styles.css" />
+ </head>
+ <body>
+  <header>
+    <nav class="nav">
+      <div class="nav-logo">
+        <img src="/assets/logo.svg" alt="" class="nav-logo-img" />
+        <span class="nav-logo-text">CHAABENA CONSULTING CAPITAL</span>
+      </div>
+      <div class="nav-links">
+        <a href="/">Accueil</a>
+        <a class="active" href="/analysis/new/">Simulation</a>
+        <a href="/analysis/123/export/pdf/">Génération PDF</a>
+        <a href="/settings/methodology/">Paramètres &amp; Méthodologie</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="page-title">Wizard - Simulation complète</h1>
+    <div class="wizard-steps">
+      <a class="step" href="/analysis/new/preamble/">Préambule</a>
+      <a class="step" href="/analysis/new/">Inputs - Bilan comptable</a>
+      <a class="step" href="/analysis/new/economic-balance/">2. Bilan économique</a>
+      <a class="step" href="/analysis/new/scoring/">3. Scoring</a>
+      <a class="step active" href="/analysis/new/simulation/">4. Simulation</a>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+         <div class="card-header">
+           <div class="card-title">Stress tests</div>
+           <span class="badge">Scénarios clés</span>
+         </div>
+         <table class="table">
+           <thead>
+             <tr>
+               <th>Scénario</th>
+               <th>Score</th>
+               <th>PD</th>
+               <th>Delta</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <td>Base</td>
+               <td>--</td>
+               <td>--</td>
+               <td><span class="badge success">-</span></td>
+             </tr>
+             <tr>
+               <td>EBITDA -20%</td>
+               <td>--</td>
+               <td>--</td>
+               <td><span class="badge warning">--</span></td>
+             </tr>
+             <tr>
+               <td>Taux +200 bps</td>
+               <td>--</td>
+               <td>--</td>
+               <td><span class="badge danger">--</span></td>
+             </tr>
+           </tbody>
+         </table>
+      </div>
+
+      <div class="card">
+         <div class="card-header">
+           <div class="card-title">Monte Carlo</div>
+           <span class="badge">Paramétrage simple</span>
+         </div>
+         <div class="input-row">
+           <label class="field">
+             Volatilité EBITDA (%)
+             <input type="number" step="0.1" />
+           </label>
+           <label class="field">
+             µ croissance (%)
+             <input type="number" step="0.1" />
+           </label>
+           <label class="field">
+             Nb simulations
+             <input type="number" />
+           </label>
+           <label class="field">
+             Override volatilité (%)
+             <input type="number" step="0.1" />
+           </label>
+         </div>
+         <div class="divider"></div>
+         <div class="metrics">
+           <div class="metric">
+             <strong>PD moyenne</strong>
+             <span class="muted">--</span>
+           </div>
+           <div class="metric">
+             <strong>PD P95</strong>
+             <span class="muted">--</span>
+           </div>
+           <div class="metric">
+             <strong>Prob. levier &gt; 5x</strong>
+             <span class="muted">--</span>
+           </div>
+           <div class="metric">
+             <strong>Distribution</strong>
+             <span class="muted">Histogramme</span>
+           </div>
+         </div>
+      </div>
+
+      <div class="card">
+         <div class="card-header">
+           <div class="card-title">Module LBO / Private Equity</div>
+           <span class="badge">Toggle</span>
+         </div>
+         <div class="input-row">
+           <label class="field">
+             Structure LBO ?
+             <select>
+               <option></option>
+               <option>Oui</option>
+               <option>Non</option>
+             </select>
+           </label>
+           <label class="field">
+             Dette senior (x EBITDA)
+             <input type="number" step="0.1" />
+           </label>
+           <label class="field">
+             Unitranche (x EBITDA)
+             <input type="number" step="0.1" />
+           </label>
+           <label class="field">
+             Mezz / PIK (x EBITDA)
+             <input type="number" step="0.1" />
+           </label>
+           <label class="field">
+             Amortissement (années)
+             <input type="number" />
+           </label>
+           <label class="field">
+             Taux (%)
+             <input type="number" step="0.1" />
+           </label>
+           <label class="field">
+             Multiple entrée (x)
+             <input type="number" step="0.1" />
+           </label>
+           <label class="field">
+             Multiple sortie (x)
+             <input type="number" step="0.1" />
+           </label>
+         </div>
+         <div class="divider"></div>
+         <div class="metrics">
+           <div class="metric">
+             <strong>Levier initial</strong>
+             <span class="muted">--</span>
+           </div>
+           <div class="metric">
+             <strong>DSCR min</strong>
+             <span class="muted">--</span>
+           </div>
+           <div class="metric">
+             <strong>Cash sweep</strong>
+             <span class="muted">--</span>
+           </div>
+           <div class="metric">
+             <strong>Risk add-on</strong>
+             <span class="muted">--</span>
+           </div>
+         </div>
+      </div>
+
+      <div class="card">
+         <div class="card-header">
+           <div class="card-title">Résultat final</div>
+           <span class="badge success">Score global: --</span>
+         </div>
+         <div class="metrics">
+           <div class="metric">
+             <strong>Rating</strong>
+             <span class="muted">--</span>
+           </div>
+           <div class="metric">
+             <strong>PD base</strong>
+             <span class="muted">--</span>
+           </div>
+           <div class="metric">
+             <strong>Interprétation</strong>
+             <span class="muted">--</span>
+           </div>
+           <div class="metric">
+             <strong>Décision</strong>
+             <span class="muted">--</span>
+           </div>
+         </div>
+         <div class="footer-actions">
+           <a class="btn" href="/analysis/123/export/pdf/">Résultats en détail</a>
+         </div>
+       </div>
+    </div>
+
+    <div class="footer-actions">
+      <a class="btn secondary" href="/analysis/123/report/">Voir le récapitulatif (template)</a>
+      <a class="btn" href="/analysis/123/export/pdf/">Générer PDF</a>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content">Karim CHAABENA · Paris, France · 2026</div>
+  </footer>
+ </body>
+ </html>

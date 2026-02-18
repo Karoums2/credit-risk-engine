@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulation - Préambule</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body data-page="preamble" data-nav="simulation">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../index.html">
+          <img src="../assets/img/logo.svg" alt="Logo argenté CHAABENA CONSULTING CAPITAL" />
+          <span class="brand-title">CHAABENA CONSULTING CAPITAL</span>
+        </a>
+        <nav class="main-nav">
+          <a data-nav="home" href="../index.html">Accueil</a>
+          <a data-nav="simulation" href="./preamble.html">Simulation</a>
+          <a data-nav="pdf" href="../export/pdf.html">Génération PDF</a>
+          <a data-nav="settings" href="../settings/methodology.html">Paramètres &amp; Méthodologie</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="container">
+        <section class="page-header">
+          <h1>Préambule de l'analyse</h1>
+        </section>
+
+        <div class="stepper">
+          <div class="stepper-item active">Préambule</div>
+          <div class="stepper-item">Inputs</div>
+          <div class="stepper-item">2. Bilan économique</div>
+          <div class="stepper-item">3. Scoring</div>
+          <div class="stepper-item">4. Simulation</div>
+        </div>
+
+        <section class="card section">
+          <div class="grid-2">
+            <div class="field">
+              <label for="name">Nom entreprise</label>
+              <input id="name" data-bind="company.name" type="text" />
+            </div>
+            <div class="field">
+              <label for="creationDate">Date de création</label>
+              <input id="creationDate" data-bind="company.creationDate" type="date" />
+            </div>
+            <div class="field">
+              <label for="sector">Secteur</label>
+              <select id="sector" data-bind="company.sector"></select>
+            </div>
+            <div class="field">
+              <label for="country">Pays</label>
+              <input id="country" data-bind="company.country" type="text" />
+            </div>
+            <div class="field">
+              <label for="headcount">Effectif</label>
+              <input id="headcount" data-bind="company.headcount" type="number" />
+            </div>
+            <div class="field">
+              <label for="businessModel">Modèle économique</label>
+              <select id="businessModel" data-bind="company.businessModel">
+                <option value="">Sélectionner</option>
+                <option value="Vente directe">Vente directe</option>
+                <option value="Abonnement">Abonnement</option>
+                <option value="Commission">Commission</option>
+                <option value="SaaS">SaaS</option>
+                <option value="Marketplace">Marketplace</option>
+                <option value="Publicité">Publicité</option>
+              </select>
+            </div>
+          </div>
+          <div class="field section">
+            <label for="comments">Commentaires</label>
+            <textarea id="comments" data-bind="company.comments"></textarea>
+          </div>
+
+          <div class="btn-row">
+            <a class="btn" href="./inputs-balance-sheet.html">Continuer vers bilan comptable</a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>Karim CHAABENA – Paris, France – 2026</p>
+      </div>
+    </footer>
+
+    <script src="../assets/js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,164 @@
+ <!DOCTYPE html>
+ <html lang="fr">
+ <head>
+   <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta name="theme-color" content="#0b2a4a" />
+   <meta name="referrer" content="strict-origin-when-cross-origin" />
+   <title>Nouvelle analyse - Scoring</title>
+   <link rel="stylesheet" href="/styles.css" />
+ </head>
+ <body>
+  <header>
+    <nav class="nav">
+      <div class="nav-logo">
+        <img src="/assets/logo.svg" alt="" class="nav-logo-img" />
+        <span class="nav-logo-text">CHAABENA CONSULTING CAPITAL</span>
+      </div>
+      <div class="nav-links">
+        <a href="/">Accueil</a>
+        <a class="active" href="/analysis/new/">Simulation</a>
+        <a href="/analysis/123/export/pdf/">Génération PDF</a>
+        <a href="/settings/methodology/">Paramètres &amp; Méthodologie</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="page-title">Wizard - Scoring</h1>
+    <div class="wizard-steps">
+      <a class="step" href="/analysis/new/preamble/">Préambule</a>
+      <a class="step" href="/analysis/new/">Inputs - Bilan comptable</a>
+      <a class="step" href="/analysis/new/economic-balance/">2. Bilan économique</a>
+      <a class="step active" href="/analysis/new/scoring/">3. Scoring</a>
+      <a class="step" href="/analysis/new/simulation/">4. Simulation</a>
+    </div>
+
+    <div class="two-columns">
+      <div class="grid">
+        <div class="card">
+           <div class="card-header">
+             <div class="card-title">Paire 1 - Structure</div>
+             <span class="badge">Score matrice: --</span>
+           </div>
+           <table class="table">
+             <tbody>
+               <tr>
+                 <td>Dette nette / EBITDA</td>
+                 <td>--</td>
+                 <td><span class="tag">Score 1-10: --</span></td>
+               </tr>
+               <tr>
+                 <td>EBITDA / Charges fin.</td>
+                 <td>--</td>
+                 <td><span class="tag">Score 1-10: --</span></td>
+               </tr>
+             </tbody>
+           </table>
+           <div class="muted">Interprétation: --</div>
+        </div>
+
+        <div class="card">
+           <div class="card-header">
+             <div class="card-title">Paire 2 - Liquidité</div>
+             <span class="badge">Score matrice: --</span>
+           </div>
+           <table class="table">
+             <tbody>
+               <tr>
+                 <td>FCF / EBITDA</td>
+                 <td>--</td>
+                 <td><span class="tag">Score 1-10: --</span></td>
+               </tr>
+               <tr>
+                 <td>(Cash + lignes) / dettes &lt; 12m</td>
+                 <td>--</td>
+                 <td><span class="tag">Score 1-10: --</span></td>
+               </tr>
+             </tbody>
+           </table>
+           <div class="muted">Interprétation: --</div>
+         </div>
+ 
+         <div class="card">
+           <div class="card-header">
+             <div class="card-title">Paire 3 - Business</div>
+             <span class="badge">Score matrice: --</span>
+           </div>
+           <table class="table">
+             <tbody>
+               <tr>
+                 <td>Volatilité CA</td>
+                 <td>--</td>
+                 <td><span class="tag">Score 1-10: --</span></td>
+               </tr>
+               <tr>
+                 <td>Volatilité marge / EBITDA</td>
+                 <td>--</td>
+                 <td><span class="tag">Score 1-10: --</span></td>
+               </tr>
+             </tbody>
+           </table>
+           <div class="muted">Interprétation: --</div>
+         </div>
+ 
+         <div class="card">
+           <div class="card-header">
+             <div class="card-title">Paire 4 - Gouvernance &amp; stratégique</div>
+             <span class="badge">Score matrice: --</span>
+           </div>
+           <table class="table">
+             <tbody>
+               <tr>
+                 <td>Gouvernance (questionnaire)</td>
+                 <td>--</td>
+                 <td><span class="tag">Score 1-10: --</span></td>
+               </tr>
+               <tr>
+                 <td>Risque stratégique (questionnaire)</td>
+                 <td>--</td>
+                 <td><span class="tag">Score 1-10: --</span></td>
+               </tr>
+             </tbody>
+           </table>
+           <div class="muted">Interprétation: --</div>
+         </div>
+       </div>
+ 
+       <div class="card">
+         <div class="card-header">
+           <div class="card-title">Matrice &amp; lecture</div>
+           <span class="badge">Heatmap 10x10</span>
+         </div>
+         <div class="heatmap">
+           <div class="cell level-1"></div><div class="cell level-1"></div><div class="cell level-1"></div><div class="cell level-2"></div><div class="cell level-2"></div><div class="cell level-2"></div><div class="cell level-3"></div><div class="cell level-3"></div><div class="cell level-4"></div><div class="cell level-5"></div>
+           <div class="cell level-1"></div><div class="cell level-1"></div><div class="cell level-2"></div><div class="cell level-2"></div><div class="cell level-3"></div><div class="cell level-3"></div><div class="cell level-3"></div><div class="cell level-4"></div><div class="cell level-4"></div><div class="cell level-5"></div>
+           <div class="cell level-1"></div><div class="cell level-2"></div><div class="cell level-2"></div><div class="cell level-3"></div><div class="cell level-3"></div><div class="cell level-3"></div><div class="cell level-4"></div><div class="cell level-4"></div><div class="cell level-4"></div><div class="cell level-5"></div>
+           <div class="cell level-2"></div><div class="cell level-2"></div><div class="cell level-3"></div><div class="cell level-3"></div><div class="cell level-3"></div><div class="cell level-4"></div><div class="cell level-4"></div><div class="cell level-4 selected"></div><div class="cell level-5"></div><div class="cell level-5"></div>
+           <div class="cell level-2"></div><div class="cell level-3"></div><div class="cell level-3"></div><div class="cell level-3"></div><div class="cell level-4"></div><div class="cell level-4"></div><div class="cell level-4"></div><div class="cell level-5"></div><div class="cell level-5"></div><div class="cell level-5"></div>
+           <div class="cell level-2"></div><div class="cell level-3"></div><div class="cell level-3"></div><div class="cell level-4"></div><div class="cell level-4"></div><div class="cell level-4"></div><div class="cell level-5"></div><div class="cell level-5"></div><div class="cell level-5"></div><div class="cell level-5"></div>
+           <div class="cell level-3"></div><div class="cell level-3"></div><div class="cell level-4"></div><div class="cell level-4"></div><div class="cell level-4"></div><div class="cell level-5"></div><div class="cell level-5"></div><div class="cell level-5"></div><div class="cell level-5"></div><div class="cell level-5"></div>
+           <div class="cell level-3"></div><div class="cell level-4"></div><div class="cell level-4"></div><div class="cell level-4"></div><div class="cell level-5"></div><div class="cell level-5"></div><div class="cell level-5"></div><div class="cell level-5"></div><div class="cell level-5"></div><div class="cell level-5"></div>
+           <div class="cell level-4"></div><div class="cell level-4"></div><div class="cell level-4"></div><div class="cell level-5"></div><div class="cell level-5"></div><div class="cell level-5"></div><div class="cell level-5"></div><div class="cell level-5"></div><div class="cell level-5"></div><div class="cell level-5"></div>
+           <div class="cell level-4"></div><div class="cell level-4"></div><div class="cell level-5"></div><div class="cell level-5"></div><div class="cell level-5"></div><div class="cell level-5"></div><div class="cell level-5"></div><div class="cell level-5"></div><div class="cell level-5"></div><div class="cell level-5"></div>
+         </div>
+         <div class="divider"></div>
+         <div class="legend">
+          <span><i class="dot low"></i>Faible</span>
+          <span><i class="dot mid"></i>Moyen</span>
+          <span><i class="dot high"></i>Élevé</span>
+         </div>
+         <div class="divider"></div>
+         <div class="footer-actions">
+           <a class="btn" href="/analysis/new/simulation/">Lancer simulation complète</a>
+         </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content">Karim CHAABENA · Paris, France · 2026</div>
+  </footer>
+ </body>
+ </html>

@@ -1,0 +1,113 @@
+ <!DOCTYPE html>
+ <html lang="fr">
+ <head>
+   <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta name="theme-color" content="#0b2a4a" />
+   <meta name="referrer" content="strict-origin-when-cross-origin" />
+   <title>Nouvelle analyse - Préambule</title>
+   <link rel="stylesheet" href="/styles.css" />
+ </head>
+ <body>
+  <header>
+    <nav class="nav">
+      <div class="nav-logo">
+        <img src="/assets/logo.svg" alt="" class="nav-logo-img" />
+        <span class="nav-logo-text">CHAABENA CONSULTING CAPITAL</span>
+      </div>
+      <div class="nav-links">
+        <a href="/">Accueil</a>
+        <a class="active" href="/analysis/new/preamble/">Simulation</a>
+        <a href="/analysis/123/export/pdf/">Génération PDF</a>
+        <a href="/settings/methodology/">Paramètres &amp; Méthodologie</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="page-title">Simulation - Préambule</h1>
+    <p class="subtitle">Renseignez les informations clés avant d'accéder au bilan comptable.</p>
+    <div class="wizard-steps">
+      <a class="step active" href="/analysis/new/preamble/">Préambule</a>
+      <a class="step" href="/analysis/new/">Inputs</a>
+      <a class="step" href="/analysis/new/economic-balance/">2. Bilan économique</a>
+      <a class="step" href="/analysis/new/scoring/">3. Scoring</a>
+      <a class="step" href="/analysis/new/simulation/">4. Simulation</a>
+    </div>
+
+    <div class="card">
+       <div class="card-title">Informations entreprise</div>
+       <p class="muted">Ces informations sont nécessaires à la compréhension du fonctionnement de l'entreprise.</p>
+       <div class="divider"></div>
+       <div class="grid grid-2">
+         <label class="field">
+           Nom de l'entreprise
+           <input type="text" />
+         </label>
+         <label class="field">
+           Date de création
+           <input type="date" />
+         </label>
+         <label class="field">
+           Secteur d'activité
+           <select>
+             <option></option>
+             <option>Retail</option>
+             <option>Energie</option>
+             <option>Industrie</option>
+             <option>Tech / SaaS</option>
+           </select>
+         </label>
+         <label class="field">
+           Pays
+           <input type="text" />
+         </label>
+         <label class="field">
+           Effectif
+           <input type="number" />
+         </label>
+         <label class="field">
+           Modèle économique
+           <input type="text" />
+         </label>
+       </div>
+       <div class="divider"></div>
+       <label class="field">
+         Commentaires clés sur l'entreprise
+         <textarea></textarea>
+       </label>
+       <div class="footer-actions">
+         <a class="btn" href="/analysis/new/">Continuer vers bilan comptable</a>
+       </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content">Karim CHAABENA · Paris, France · 2026</div>
+  </footer>
+ 
+   <script>
+     const createdAtInput = document.querySelector('input[type="date"]');
+     const updateCompanyAge = () => {
+       if (!createdAtInput || !createdAtInput.value) {
+         localStorage.removeItem("company_age_years");
+         localStorage.removeItem("company_allowed_years");
+         return;
+       }
+       const createdAt = new Date(createdAtInput.value);
+       const now = new Date();
+       let age = now.getFullYear() - createdAt.getFullYear();
+       const m = now.getMonth() - createdAt.getMonth();
+       if (m < 0 || (m === 0 && now.getDate() < createdAt.getDate())) {
+         age -= 1;
+       }
+       const allowedYears = age < 2 ? 1 : age < 3 ? 2 : 3;
+       localStorage.setItem("company_age_years", String(age));
+       localStorage.setItem("company_allowed_years", String(allowedYears));
+     };
+ 
+     createdAtInput?.addEventListener("change", updateCompanyAge);
+     updateCompanyAge();
+   </script>
+ </body>
+ </html>

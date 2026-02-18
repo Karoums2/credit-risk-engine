@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Résultats - Credit Risk Engine</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body data-page="results" data-nav="simulation">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../index.html">
+          <img src="../assets/img/logo.svg" alt="Logo argenté CHAABENA CONSULTING CAPITAL" />
+          <span class="brand-title">CHAABENA CONSULTING CAPITAL</span>
+        </a>
+        <nav class="main-nav">
+          <a data-nav="home" href="../index.html">Accueil</a>
+          <a data-nav="simulation" href="../simulation/preamble.html">Simulation</a>
+          <a data-nav="pdf" href="../export/pdf.html">Génération PDF</a>
+          <a data-nav="settings" href="../settings/methodology.html">Paramètres &amp; Méthodologie</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page print-meta">
+      <div class="container">
+        <section class="page-header">
+          <h1>Résultats</h1>
+          <p class="note">Template final - synthèse exécutive et documentation des risques.</p>
+        </section>
+
+        <section class="kpi-grid section">
+          <div class="kpi"><p class="label">Score global</p><p class="value" id="resScore">-</p></div>
+          <div class="kpi"><p class="label">Rating</p><p class="value" id="resRating">-</p></div>
+          <div class="kpi"><p class="label">PD</p><p class="value" id="resPd">-</p></div>
+          <div class="kpi"><p class="label">EL</p><p class="value" id="resEl">-</p></div>
+        </section>
+
+        <section class="card section table-wrap">
+          <h3>Tableau des 4 paires</h3>
+          <table>
+            <thead><tr><th>Paire</th><th>Score</th><th>Niveau de risque</th><th>Commentaire auto</th></tr></thead>
+            <tbody id="pairRows"></tbody>
+          </table>
+        </section>
+
+        <section class="card section table-wrap">
+          <h3>Stress tests</h3>
+          <table>
+            <thead><tr><th>Scénario</th><th>Score</th><th>Rating</th><th>PD</th></tr></thead>
+            <tbody id="stressRows"></tbody>
+          </table>
+        </section>
+
+        <section class="card section">
+          <h3>PD / LGD / EAD / EL</h3>
+          <p id="resPdlgdeadel">-</p>
+        </section>
+
+        <section class="card section table-wrap">
+          <h3>Heatmap</h3>
+          <table id="heatmapResult" class="heatmap"></table>
+        </section>
+
+        <section class="card section chart-card">
+          <h3>Levier (historique)</h3>
+          <canvas id="levierChart"></canvas>
+        </section>
+
+        <section class="card section chart-card">
+          <h3>Histogramme Monte Carlo</h3>
+          <canvas id="histResult"></canvas>
+        </section>
+
+        <div class="btn-row no-print">
+          <button id="saveAnalysisBtn" class="btn btn-secondary" type="button">Enregistrer analyse</button>
+          <a class="btn" href="../export/pdf.html">Générer PDF</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer no-print">
+      <div class="container footer-inner">
+        <p>Karim CHAABENA – Paris, France – 2026</p>
+      </div>
+    </footer>
+
+    <script src="../assets/js/app.js"></script>
+  </body>
+</html>

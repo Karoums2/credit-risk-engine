@@ -1,0 +1,95 @@
+ <!DOCTYPE html>
+ <html lang="fr">
+ <head>
+   <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta name="theme-color" content="#0b2a4a" />
+   <meta name="referrer" content="strict-origin-when-cross-origin" />
+   <title>Export PDF</title>
+   <link rel="stylesheet" href="/styles.css" />
+ </head>
+ <body>
+  <header>
+    <nav class="nav">
+      <div class="nav-logo">
+        <img src="/assets/logo.svg" alt="" class="nav-logo-img" />
+        <span class="nav-logo-text">CHAABENA CONSULTING CAPITAL</span>
+      </div>
+      <div class="nav-links">
+        <a href="/">Accueil</a>
+        <a href="/analysis/new/preamble/">Simulation</a>
+        <a class="active" href="/analysis/123/export/pdf/">Génération PDF</a>
+        <a href="/settings/methodology/">Paramètres &amp; Méthodologie</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="page-title">Génération PDF</h1>
+    <p class="subtitle">Template Résultats figé, watermark "Confidentiel".</p>
+ 
+     <div class="card">
+       <div class="card-title">Choisir le format</div>
+       <div class="divider"></div>
+       <div class="grid grid-2">
+         <div class="card">
+           <div class="card-title">Client summary (4 pages)</div>
+           <p class="muted">Synthèse forces/faiblesses + scores clés.</p>
+           <button class="btn" type="button" onclick="window.print()">Générer PDF</button>
+         </div>
+         <div class="card">
+           <div class="card-title">Full report (10-15 pages)</div>
+           <p class="muted">Rapport complet avec annexes et graphiques.</p>
+           <button class="btn" type="button" onclick="window.print()">Générer PDF</button>
+         </div>
+       </div>
+       <div class="divider"></div>
+       <div class="muted">Numérotation des pages + date + disclaimer.</div>
+     </div>
+ 
+    <div class="card stack">
+       <div class="card-title">Executive Dashboard (page 1)</div>
+       <p class="muted">Synthèse ultra-impactante: score, rating, PD, forces/faiblesses.</p>
+       <div class="divider"></div>
+       <div class="kpi-row">
+         <div class="kpi"><strong>Score global</strong>--</div>
+         <div class="kpi"><strong>Rating</strong>--</div>
+         <div class="kpi"><strong>PD 1 an</strong>--</div>
+         <div class="kpi"><strong>Expected Loss</strong>--</div>
+       </div>
+     </div>
+ 
+    <div class="card stack">
+       <div class="card-title">Graphiques obligatoires</div>
+       <p class="muted">Bilan économique, levier, heatmap, Monte Carlo, LBO.</p>
+       <div class="divider"></div>
+       <div class="figure-grid">
+         <div class="figure">
+           <img src="https://insureware.com/images/Library/SolvencyII/block_diagram.png" alt="Bilan économique 4 boîtes" />
+           <div class="caption">Bilan économique - 4 boîtes.</div>
+         </div>
+         <div class="figure">
+           <img src="https://macabacus.com/assets/2023/10/EVEBITDA-Ratios.svg" alt="Evolution du levier" />
+           <div class="caption">Évolution du levier: historique + projection.</div>
+         </div>
+         <div class="figure">
+           <img src="https://community.fabric.microsoft.com/t5/image/serverpage/image-id/1232886i4D5671F65C86922A?v=v2" alt="Heatmap scoring 10x10" />
+           <div class="caption">Heatmap scoring 10x10.</div>
+         </div>
+         <div class="figure">
+           <img src="https://www.researchgate.net/publication/341831186/figure/fig5/AS%3A960029167460359%401605900198428/Monte-Carlo-simulation-histogram-result.png" alt="Monte Carlo distribution" />
+           <div class="caption">Monte Carlo: distribution de PD.</div>
+         </div>
+         <div class="figure">
+           <img src="https://media.wallstreetprep.com/uploads/2023/02/22192725/LBO-Acquisition-Financing-960x394.jpg" alt="Structure LBO" />
+           <div class="caption">Module LBO: structure de dette.</div>
+         </div>
+       </div>
+     </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content">Karim CHAABENA · Paris, France · 2026</div>
+  </footer>
+ </body>
+ </html>

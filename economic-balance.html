@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulation - Bilan économique</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body data-page="economic-balance" data-nav="simulation">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../index.html">
+          <img src="../assets/img/logo.svg" alt="Logo argenté CHAABENA CONSULTING CAPITAL" />
+          <span class="brand-title">CHAABENA CONSULTING CAPITAL</span>
+        </a>
+        <nav class="main-nav">
+          <a data-nav="home" href="../index.html">Accueil</a>
+          <a data-nav="simulation" href="./preamble.html">Simulation</a>
+          <a data-nav="pdf" href="../export/pdf.html">Génération PDF</a>
+          <a data-nav="settings" href="../settings/methodology.html">Paramètres &amp; Méthodologie</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="container">
+        <section class="page-header">
+          <h1>Bilan économique</h1>
+        </section>
+
+        <div class="stepper">
+          <div class="stepper-item">Préambule</div>
+          <div class="stepper-item">Inputs</div>
+          <div class="stepper-item active">2. Bilan économique</div>
+          <div class="stepper-item">3. Scoring</div>
+          <div class="stepper-item">4. Simulation</div>
+        </div>
+
+        <section class="card section table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Indicateur</th>
+                <th>Valeur FY N</th>
+                <th>Formule</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>BFR</td>
+                <td id="bfrValue">-</td>
+                <td title="BFR = Stocks + Créances clients − Dettes fournisseurs">Stocks + Créances clients − Dettes fournisseurs</td>
+              </tr>
+              <tr>
+                <td>Actif économique</td>
+                <td id="actifEcoValue">-</td>
+                <td title="Actif économique = Immobilisations + BFR">Immobilisations + BFR</td>
+              </tr>
+              <tr>
+                <td>Dette nette</td>
+                <td id="detteNetteValue">-</td>
+                <td title="Dette nette = Dette financière brute − Trésorerie">Dette financière brute − Trésorerie</td>
+              </tr>
+              <tr>
+                <td>Capitaux investis</td>
+                <td id="capInvestValue">-</td>
+                <td title="Capitaux investis = Fonds propres + Dette nette">Fonds propres + Dette nette</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="card section">
+          <h3>Diagramme 4 boîtes</h3>
+          <div class="four-box">
+            <div class="box">
+              <p class="label">BFR</p>
+              <p id="bfrValueBox">-</p>
+            </div>
+            <div class="box">
+              <p class="label">Actif économique</p>
+              <p id="actifEcoValueBox">-</p>
+            </div>
+            <div class="box">
+              <p class="label">Dette nette</p>
+              <p id="detteNetteValueBox">-</p>
+            </div>
+            <div class="box">
+              <p class="label">Capitaux investis</p>
+              <p id="capInvestValueBox">-</p>
+            </div>
+          </div>
+        </section>
+
+        <div class="btn-row">
+          <a class="btn btn-secondary" href="./inputs-cashflow.html">Retour cash-flow</a>
+          <a class="btn" href="./scoring.html">Vers scoring</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>Karim CHAABENA – Paris, France – 2026</p>
+      </div>
+    </footer>
+
+    <script src="../assets/js/app.js"></script>
+  </body>
+</html>

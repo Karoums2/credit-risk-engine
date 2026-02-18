@@ -1,0 +1,172 @@
+ <!DOCTYPE html>
+ <html lang="fr">
+ <head>
+   <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta name="theme-color" content="#0b2a4a" />
+   <meta name="referrer" content="strict-origin-when-cross-origin" />
+   <title>Nouvelle analyse - Inputs (Bilan comptable)</title>
+   <link rel="stylesheet" href="/styles.css" />
+ </head>
+ <body>
+  <header>
+    <nav class="nav">
+      <div class="nav-logo">
+        <img src="/assets/logo.svg" alt="" class="nav-logo-img" />
+        <span class="nav-logo-text">CHAABENA CONSULTING CAPITAL</span>
+      </div>
+      <div class="nav-links">
+        <a href="/">Accueil</a>
+        <a class="active" href="/analysis/new/">Simulation</a>
+        <a href="/analysis/123/export/pdf/">Génération PDF</a>
+        <a href="/settings/methodology/">Paramètres &amp; Méthodologie</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="page-title">Simulation - Bilan comptable</h1>
+    <p class="subtitle">Étape Inputs: renseignez le bilan comptable.</p>
+    <div class="wizard-steps">
+      <a class="step" href="/analysis/new/preamble/">Préambule</a>
+      <a class="step active" href="/analysis/new/">Inputs</a>
+      <a class="step" href="/analysis/new/economic-balance/">2. Bilan économique</a>
+      <a class="step" href="/analysis/new/scoring/">3. Scoring</a>
+      <a class="step" href="/analysis/new/simulation/">4. Simulation</a>
+    </div>
+
+    <div class="two-columns">
+      <div class="card">
+         <div class="card-header">
+           <div>
+             <div class="card-title">Table éditable</div>
+             <div class="card-meta">Actifs / Passifs (FY N à N-2)</div>
+           </div>
+          <div class="tabs">
+            <a class="tab active" href="/analysis/new/">Bilan comptable</a>
+             <a class="tab" href="/analysis/new/income-statement/">Compte de résultat</a>
+             <a class="tab" href="/analysis/new/cash-flow/">Cash-flow</a>
+           </div>
+         </div>
+ 
+        <h2 class="section-title">Bilan comptable</h2>
+         <table class="table">
+           <thead>
+             <tr>
+               <th>Poste</th>
+               <th>FY N</th>
+               <th>FY N-1</th>
+               <th>FY N-2</th>
+               <th>Validation</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <td>Actifs immobilisés</td>
+               <td><input type="number" /></td>
+               <td><input type="number" /></td>
+               <td><input type="number" /></td>
+               <td><span class="badge warning status">Manquant</span></td>
+             </tr>
+             <tr>
+               <td>Stocks</td>
+               <td><input type="number" /></td>
+               <td><input type="number" /></td>
+               <td><input type="number" /></td>
+               <td><span class="badge warning status">Manquant</span></td>
+             </tr>
+             <tr>
+               <td>Créances clients</td>
+               <td><input type="number" /></td>
+               <td><input type="number" /></td>
+               <td><input type="number" /></td>
+               <td><span class="badge warning status">Manquant</span></td>
+             </tr>
+             <tr>
+               <td>Trésorerie &amp; équivalents</td>
+               <td><input type="number" /></td>
+               <td><input type="number" /></td>
+               <td><input type="number" /></td>
+               <td><span class="badge warning status">Manquant</span></td>
+             </tr>
+             <tr>
+               <td>Dettes fournisseurs</td>
+               <td><input type="number" /></td>
+               <td><input type="number" /></td>
+               <td><input type="number" /></td>
+               <td><span class="badge warning status">Manquant</span></td>
+             </tr>
+             <tr>
+               <td>Dettes financières (CT/LT)</td>
+               <td><input type="number" /></td>
+               <td><input type="number" /></td>
+               <td><input type="number" /></td>
+               <td><span class="badge warning status">Manquant</span></td>
+             </tr>
+             <tr>
+               <td>Capitaux propres</td>
+               <td><input type="number" /></td>
+               <td><input type="number" /></td>
+               <td><input type="number" /></td>
+               <td><span class="badge warning status">Manquant</span></td>
+             </tr>
+           </tbody>
+         </table>
+         <div class="divider"></div>
+         <div class="section-actions">
+           <a class="btn secondary" href="/analysis/new/preamble/">Retour au préambule</a>
+           <a class="btn" href="/analysis/new/income-statement/">Continuer vers compte de résultat</a>
+         </div>
+      </div>
+
+      <div class="card">
+         <div class="card-title">Validation &amp; aide</div>
+         <p class="muted">Unités, champs obligatoires, formats.</p>
+         <div class="divider"></div>
+         <div class="grid">
+           <div class="inline-field">Unité: k€</div>
+           <div class="inline-field">Champs requis: 2</div>
+           <div class="inline-field">Dernière sauvegarde: --:--</div>
+           <div class="inline-field">Commentaires analyste</div>
+         </div>
+         <div class="divider"></div>
+         <div class="card-title">Rappels</div>
+         <ul class="muted">
+           <li>Dettes financières: préciser fixe / variable.</li>
+           <li>Ajouter EBITDA si disponible.</li>
+           <li>Lignes confirmées non tirées.</li>
+         </ul>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content">Karim CHAABENA · Paris, France · 2026</div>
+  </footer>
+ 
+   <script>
+    const rows = document.querySelectorAll("table.table tbody tr");
+    const allowedYears = Number(localStorage.getItem("company_allowed_years") || "3");
+     const updateRowStatus = (row) => {
+       const inputs = row.querySelectorAll("input, select, textarea");
+       if (!inputs.length) return;
+      const filledCount = Array.from(inputs).filter((input) => {
+        return String(input.value || "").trim() !== "";
+      }).length;
+      const requiredCount = Math.min(allowedYears, inputs.length);
+      const allFilled = filledCount >= requiredCount;
+       const status = row.querySelector(".status");
+       if (!status) return;
+       status.textContent = allFilled ? "OK" : "Manquant";
+       status.classList.toggle("success", allFilled);
+       status.classList.toggle("warning", !allFilled);
+     };
+ 
+     rows.forEach((row) => {
+       updateRowStatus(row);
+       row.addEventListener("input", () => updateRowStatus(row));
+       row.addEventListener("change", () => updateRowStatus(row));
+     });
+   </script>
+ </body>
+ </html>
