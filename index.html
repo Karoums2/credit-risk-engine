@@ -3,104 +3,341 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CHAABENA CONSULTING CAPITAL - Accueil</title>
+    <title>CHAABENA CONSULTING CAPITAL - Credit Risk Engine</title>
     <link rel="stylesheet" href="./analysis/styles.css" />
+    <style>
+      .fixed-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: #fff;
+        border-bottom: 1px solid var(--border);
+      }
+
+      body {
+        padding-top: 86px;
+      }
+
+      section {
+        scroll-margin-top: 110px;
+      }
+
+      .section-title {
+        margin-top: 0;
+      }
+    </style>
   </head>
-  <body data-page="home" data-nav="home">
-    <header class="site-header">
-      <div class="container header-inner">
-        <a class="brand" href="./index.html">
-          <img src="./assets/img/logo.svg" width="100" height="100" alt="Logo argenté CHAABENA CONSULTING CAPITAL" />
-          <span class="brand-title">CHAABENA CONSULTING CAPITAL</span>
+  <body>
+    <header class="fixed-header">
+      <div class="nav">
+        <a class="nav-logo" href="#accueil">
+          <img class="nav-logo-img" src="./assets/img/logo.svg" alt="Logo CHAABENA CONSULTING CAPITAL" />
+          <span class="nav-logo-text">CHAABENA CONSULTING CAPITAL</span>
         </a>
-        <nav class="main-nav">
-          <a data-nav="home" href="./index.html">Accueil</a>
-          <a data-nav="simulation" href="./simulation/preamble.html">Simulation</a>
-          <a data-nav="pdf" href="./export/pdf.html">Génération PDF</a>
-          <a data-nav="settings" href="./settings/methodology.html">Paramètres &amp; Méthodologie</a>
+        <nav class="nav-links">
+          <a href="#accueil">Accueil</a>
+          <a href="#simulation">Simulation</a>
+          <a href="#scoring">Scoring</a>
+          <a href="#simulation-complete">Simulation complète</a>
         </nav>
       </div>
     </header>
 
-    <main class="page">
-      <div class="container">
-        <section class="page-header">
-          <h1>Credit Risk Engine</h1>
-          <p class="note">
-            Plateforme d'analyse du risque de crédit: scoring, stress tests, Monte Carlo et reporting institutionnel.
-          </p>
-        </section>
-
-        <section class="grid-2 section">
-          <article class="card text-justified">
+    <main>
+      <section id="accueil" class="card">
+        <h1 class="page-title section-title">Credit Risk Engine</h1>
+        <p class="subtitle">
+          Plateforme de simulation et d'analyse du risque de crédit pour structurer les données financières et produire une
+          décision claire.
+        </p>
+        <div class="grid grid-2">
+          <article class="card">
             <h2>Histoire</h2>
             <p>
-              Étudiant en Master 2 Programme Grande École à l’ICN Business School, je travaille depuis plus d'un an sur la
-              construction d’une matrice d’analyse et d’un Credit Risk Engine. L’idée est partie d’un constat simple : on
-              dispose souvent de beaucoup de données comptables, mais elles ne donnent pas toujours une vision claire et
-              structurée du risque réel d’une entreprise.
-            </p>
-            <p>
-              J’ai donc cherché à créer un outil qui permette de transformer ces données en quelque chose de plus lisible :
-              un score, une notation, puis une probabilité de défaut. Je ne cherche pas à reproduire la complexité d’un
-              modèle bancaire réglementaire, mais plutôt à proposer une approche rigoureuse, accessible et concrète,
-              adaptée aux TPE et aux PME.
-            </p>
-            <p>
-              Ce projet est pour moi une manière de relier analyse financière, logique de marché et modélisation du risque,
-              tout en restant ancré dans des problématiques concrètes d’entreprise.
+              Cette solution est née d'un besoin concret: transformer des données comptables dispersées en une lecture
+              directement exploitable du risque. Elle relie l'analyse financière, la notation et la probabilité de défaut
+              dans un parcours cohérent.
             </p>
           </article>
-
           <article class="card">
             <h2>Objectifs</h2>
-            <div class="objectives-vertical">
-              <div class="field">
-                <label for="objective1">Objectif 1</label>
-                <input id="objective1" data-bind="company.objective1" type="text" />
-              </div>
-              <div class="field">
-                <label for="objective2">Objectif 2</label>
-                <input id="objective2" data-bind="company.objective2" type="text" />
-              </div>
-              <div class="field">
-                <label for="objective3">Objectif 3</label>
-                <input id="objective3" data-bind="company.objective3" type="text" />
-              </div>
-              <div class="field">
-                <label for="objective4">Objectif 4</label>
-                <input id="objective4" data-bind="company.objective4" type="text" />
-              </div>
-            </div>
-          </article>
-
-          <article class="card text-justified">
-            <h2>Apports de la solution</h2>
             <ul>
-              <li>Analyse financière fondamentale</li>
-              <li>Scoring structuré et interprétation des résultats en temps réel</li>
-              <li>Produire un reporting clair, visuel et exploitable</li>
+              <li>Structurer la collecte de données entreprise sur un même workflow.</li>
+              <li>Automatiser l'analyse bilan, compte de résultat et cash flow sur 3 ans.</li>
+              <li>Produire un scoring robuste, lisible et actionnable.</li>
+              <li>Faciliter la génération de livrables décisionnels (PDF et sauvegarde d'analyse).</li>
             </ul>
           </article>
-
+          <article class="card">
+            <h2>Apports de la solution</h2>
+            <ul>
+              <li>Vision de risque consolidée via bilan économique reconstitué.</li>
+              <li>Scoring multi-dimensionnel (structure, liquidité, business, gouvernance).</li>
+              <li>Projection prospective avec stress tests et Monte Carlo.</li>
+              <li>Sorties prêtes pour comités de crédit et investisseurs.</li>
+            </ul>
+          </article>
           <article class="card">
             <h2>Démarrer une simulation</h2>
-            <p class="note">
-              Lancez le wizard complet pour saisir les inputs financiers, générer le scoring et obtenir le rapport final.
-            </p>
-            <div class="btn-center-wrap">
-              <a class="btn" href="./simulation/preamble.html">Commencer la simulation</a>
+            <p class="muted">Lancez le parcours guidé de saisie et d'analyse.</p>
+            <div class="section-actions" style="justify-content: center">
+              <a class="btn" href="#simulation">CTA Simulation</a>
             </div>
           </article>
-        </section>
-      </div>
+        </div>
+      </section>
+
+      <section id="simulation" class="card">
+        <h2 class="section-title">Simulation</h2>
+        <p class="subtitle">
+          Workflow complet: Préambule, Inputs financiers sur 3 ans, puis bilan économique reconstitué.
+        </p>
+
+        <article id="preambule" class="card">
+          <h3>Préambule</h3>
+          <div class="grid grid-2">
+            <label class="field">Nom de l'entreprise <input type="text" placeholder="Nom légal" /></label>
+            <label class="field">Date de création <input type="date" /></label>
+            <label class="field">
+              Secteur d'activité
+              <select>
+                <option>Industrie</option>
+                <option>Services</option>
+                <option>Commerce</option>
+                <option>Technologie</option>
+                <option>Santé</option>
+                <option>Autre</option>
+              </select>
+            </label>
+            <label class="field">Pays <input type="text" placeholder="Pays principal d'activité" /></label>
+            <label class="field">Effectif <input type="number" placeholder="Nombre de salariés" /></label>
+            <label class="field">Modèle économique <input type="text" placeholder="B2B, B2C, SaaS, etc." /></label>
+            <label class="field" style="grid-column: 1 / -1">Commentaires <textarea></textarea></label>
+          </div>
+          <div class="section-actions">
+            <a class="btn" href="#bilan-comptable">CTA Bilan comptable</a>
+          </div>
+        </article>
+
+        <article id="inputs" class="card">
+          <h3>Inputs (sur 3 ans)</h3>
+          <p class="muted">Saisir les montants N-2, N-1 et N.</p>
+
+          <div id="bilan-comptable" class="card">
+            <h4>Bilan comptable</h4>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Poste</th>
+                    <th>N-2</th>
+                    <th>N-1</th>
+                    <th>N</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Actifs immobilisés corporels</td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+                  <tr><td>Actifs immobilisés incorporels</td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+                  <tr><td>Actifs immobilisés financiers</td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+                  <tr><td>Stocks</td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+                  <tr><td>Créances clients</td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+                  <tr><td>Trésorerie et équivalents</td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+                  <tr><td>Dettes fournisseurs (exploitation)</td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+                  <tr><td>Dettes financières CT (variable/fixe)</td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+                  <tr><td>Dettes financières LT (variable/fixe)</td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+                  <tr><td>Capitaux propres</td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="section-actions">
+              <a class="btn" href="#comptes-resultats">CTA Comptes de résultats</a>
+            </div>
+          </div>
+
+          <div id="comptes-resultats" class="card">
+            <h4>Comptes de résultats</h4>
+            <table class="table">
+              <thead>
+                <tr><th>Indicateur</th><th>N-2</th><th>N-1</th><th>N</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>CA</td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+                <tr><td>EBITDA</td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+                <tr><td>EBIT</td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+                <tr><td>Charges</td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+                <tr><td>Résultat</td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+              </tbody>
+            </table>
+            <div class="section-actions">
+              <a class="btn" href="#cash-flow">CTA Cash flow</a>
+            </div>
+          </div>
+
+          <div id="cash-flow" class="card">
+            <h4>Cash flow</h4>
+            <table class="table">
+              <thead>
+                <tr><th>Indicateur</th><th>N-2</th><th>N-1</th><th>N</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Capex</td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+                <tr><td>Variation BFR</td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+                <tr><td>Dividendes</td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+                <tr><td>Lignes confirmées non tirées (montant)</td><td><input type="number" /></td><td><input type="number" /></td><td><input type="number" /></td></tr>
+                <tr><td>Lignes confirmées non tirées (maturité)</td><td><input type="text" placeholder="Date ou durée" /></td><td><input type="text" placeholder="Date ou durée" /></td><td><input type="text" placeholder="Date ou durée" /></td></tr>
+              </tbody>
+            </table>
+            <div class="section-actions">
+              <a class="btn" href="#bilan-economique">CTA vers Bilan économique</a>
+            </div>
+          </div>
+        </article>
+
+        <article id="bilan-economique" class="card">
+          <h3>Bilan économique</h3>
+          <p class="muted">
+            Reconstitution automatique: Actif économique = Immobilisations + BFR. Capitaux investis = Fonds propres + Dette
+            nette.
+          </p>
+          <div class="grid grid-2">
+            <div class="card">
+              <h4>Tableau synthétique</h4>
+              <table class="table">
+                <thead>
+                  <tr><th>Bloc</th><th>Valeur</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Immobilisations</td><td><input type="number" placeholder="Auto" /></td></tr>
+                  <tr><td>BFR</td><td><input type="number" placeholder="Auto" /></td></tr>
+                  <tr><td>Actif économique</td><td><input type="number" placeholder="Auto" /></td></tr>
+                  <tr><td>Fonds propres</td><td><input type="number" placeholder="Auto" /></td></tr>
+                  <tr><td>Dette nette</td><td><input type="number" placeholder="Auto" /></td></tr>
+                  <tr><td>Capitaux investis</td><td><input type="number" placeholder="Auto" /></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card">
+              <h4>Diagramme 4 boîtes</h4>
+              <div class="diagram-grid">
+                <div class="diagram-box">Immobilisations</div>
+                <div class="diagram-box">BFR</div>
+                <div class="diagram-box">Fonds propres</div>
+                <div class="diagram-box">Dette nette</div>
+              </div>
+              <p class="muted" title="Formules visibles au survol dans la version interactive complète.">
+                Formules visibles en tooltip dans l'interface dynamique.
+              </p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="scoring" class="card">
+        <h2 class="section-title">Scoring</h2>
+        <p class="subtitle">4 paires d'analyse pour la note crédit.</p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Paire</th>
+              <th>Indicateur 1</th>
+              <th>Indicateur 2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Structure</td>
+              <td>Dette nette / EBITDA</td>
+              <td>Couverture des intérêts</td>
+            </tr>
+            <tr>
+              <td>Liquidité</td>
+              <td>FCF / EBITDA</td>
+              <td>Liquidité court terme</td>
+            </tr>
+            <tr>
+              <td>Business</td>
+              <td>Volatilité CA</td>
+              <td>Volatilité marges</td>
+            </tr>
+            <tr>
+              <td>Gouvernance / stratégique</td>
+              <td>Risque stratégique</td>
+              <td>Gouvernance</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="simulation-complete" class="card">
+        <h2 class="section-title">Simulation complète</h2>
+        <div class="grid grid-2">
+          <article class="card">
+            <h3>Stress tests</h3>
+            <ul>
+              <li>EBITDA -20%</li>
+              <li>Taux +200 bps</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Monte Carlo</h3>
+            <ul>
+              <li>Volatilité EBITDA</li>
+              <li>10 000 simulations</li>
+              <li>Distribution PD</li>
+              <li>Percentile 95%</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Module LBO (si activé)</h3>
+            <ul>
+              <li>Structure de dette</li>
+              <li>Levier</li>
+              <li>DSCR</li>
+              <li>Cash sweep</li>
+              <li>Risque d'exit multiple</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Résultats (template clé)</h3>
+            <p><strong>Executive summary</strong></p>
+            <ul>
+              <li>Score global /100</li>
+              <li>Rating (AAA → CCC)</li>
+              <li>PD</li>
+              <li>Expected Loss</li>
+            </ul>
+            <p><strong>Tableaux</strong></p>
+            <ul>
+              <li>Scores par paire</li>
+              <li>Stress tests</li>
+              <li>PD / LGD / EAD / EL</li>
+            </ul>
+            <p><strong>Graphiques</strong></p>
+            <ul>
+              <li>Heatmap</li>
+              <li>Levier projeté</li>
+              <li>Histogramme Monte Carlo</li>
+            </ul>
+            <div class="footer-actions">
+              <button type="button" class="btn">Générer PDF</button>
+              <button type="button" class="btn secondary">Enregistrer analyse</button>
+            </div>
+          </article>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-inner">
-        <p>Karim CHAABENA – Paris, France – 2026</p>
-      </div>
+      <div class="footer-content">Karim CHAABENA - Paris, France - 2026</div>
     </footer>
+
+    <script src="./assets/js/app.js"></script>
+
+    <script src="./assets/js/app.js"></script>
+
+    <script src="./assets/js/app.js"></script>
 
     <script src="./assets/js/app.js"></script>
   </body>
