@@ -243,6 +243,14 @@ button {
   background: var(--white);
 }
 
+input.objective-fixed:disabled {
+  opacity: 1;
+  color: var(--text);
+  background: #ffffff;
+  cursor: default;
+  pointer-events: none;
+}
+
 textarea {
   min-height: 100px;
   resize: vertical;
